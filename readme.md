@@ -1,6 +1,6 @@
-Project Live: https://sf-electronics-theme-1-c071a0.gitlab.io/
 
-## NeoComerz Electronics Theme 1
+
+## NeoComerz Cap Shop
 
 ## Tech Stack
 - HTML
