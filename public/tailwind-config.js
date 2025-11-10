@@ -2,8 +2,7 @@ tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Geist'", "ui-sans-serif", "system-ui"],
-        geist: ["'Geist'", "sans-serif"],
+        sans: ['Inter', 'sans-serif'],
       },
       colors: {
         primary: "#155DFC",
@@ -17,6 +16,8 @@ tailwind.config = {
         softBgLeft: '#e8fff4',
         softBgRight: '#fff0f0',
         brand_bg: '#FAFAF9',
+        'deep-navy': '#1A202C', 
+        'footer-dark': '#0F141E', 
       },
       boxShadow: {
         'soft-blue': '0 0 20px 0 rgba(190, 210, 255, 0.70)',
