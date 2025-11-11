@@ -18,6 +18,7 @@ tailwind.config = {
         brand_bg: '#FAFAF9',
         'deep-navy': '#1A202C', 
         'footer-dark': '#0F141E', 
+        'bg-sale-badge': '#0d022cff',
       },
       boxShadow: {
         'soft-blue': '0 0 20px 0 rgba(190, 210, 255, 0.70)',

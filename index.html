@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CatShop</title>
     <link rel="icon" type="image/png" href="assets/image/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- tailwind config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind-config.js"></script>
     <script src="assets/js/main.js"></script>
+
 
     <style>
         /* Import Fonts: Inter for main content, Poppins for the count bubbles */
@@ -176,6 +178,31 @@
         :root {
             --navy: #1e293b;
         }
+
+        /* Global: reset border-radius to zero for production, but allow headwear icons to be circular */
+        * {
+            border-radius: 0 !important;
+        }
+
+        /* Allow rounded only for headwear icons */
+        .headwear-row .headwear-icon {
+            border-radius: 9999px !important;
+        }
+
+        /* Ensure consistent max width for section content when used */
+        .site-max {
+            max-width: 1737px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Remove left/right padding on desktop (>=1024px) for sections */
+        @media (min-width: 1024px) {
+            .no-desktop-xpadding {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
     </style>
 
 
@@ -267,7 +294,7 @@
                         </button>
                         <!-- Dropdown Content -->
                         <div
-                            class="dropdown-menu absolute w-56 bg-white/95 backdrop-blur-lg border border-gray-200 rounded-xl shadow-2xl mt-3 py-2 z-20 overflow-hidden">
+                            class="dropdown-menu absolute w-56 bg-white/95 backdrop-blur-lg border border-gray-200  shadow-2xl mt-3 py-2 z-20 overflow-hidden">
                             <a href="#"
                                 class="block px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:text-indigo-600 transition-all duration-200 border-l-2 border-transparent hover:border-indigo-500">
                                 <span class="flex items-center">
@@ -310,7 +337,7 @@
             <div class="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 z-20">
                 <!-- Search Icon with gradient hover -->
                 <button
-                    class="icon-bounce p-1.5 sm:p-2 lg:p-2.5 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 relative group">
+                    class="icon-bounce p-1.5 sm:p-2 lg:p-2.5  hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 relative group">
                     <svg xmlns="http://www.w3.org/2000/svg"
                         class="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-indigo-600 transition-colors"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -321,7 +348,7 @@
 
                 <!-- Compare Icon (with count '5') -->
                 <button
-                    class="icon-bounce p-1.5 sm:p-2 lg:p-2.5 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 relative group">
+                    class="icon-bounce p-1.5 sm:p-2 lg:p-2.5  hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 relative group">
                     <!-- Compare Icon -->
                     <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-indigo-600 transition-colors"
                         viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -337,7 +364,7 @@
 
                 <!-- Cart Icon (with count '3') -->
                 <button
-                    class="icon-bounce p-1.5 sm:p-2 lg:p-2.5 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 relative group">
+                    class="icon-bounce p-1.5 sm:p-2 lg:p-2.5  hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 relative group">
                     <!-- Cart Icon -->
                     <svg class="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 group-hover:text-indigo-600 transition-colors"
                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -353,7 +380,7 @@
 
                 <!-- Mobile Menu Button (Hamburger) - visible below 1024px -->
                 <button id="menu-toggle"
-                    class="lg:hidden p-1.5 sm:p-2 ml-1 sm:ml-2 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 group">
+                    class="lg:hidden p-1.5 sm:p-2 ml-1 sm:ml-2  hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 group">
                     <!-- Hamburger Icon -->
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg"
                         class="w-6 h-6 text-gray-900 group-hover:text-indigo-600 transition-colors" fill="none"
@@ -370,14 +397,14 @@
             <nav class="flex flex-col space-y-0.5 px-3 sm:px-4 py-4 sm:py-5 text-sm sm:text-base font-bold">
                 <!-- Home -->
                 <a href="#"
-                    class="text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3 rounded-xl hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center space-x-2.5 sm:space-x-3 border-l-4 border-transparent hover:border-indigo-500">
+                    class="text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3  hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center space-x-2.5 sm:space-x-3 border-l-4 border-transparent hover:border-indigo-500">
                     <span class="text-lg sm:text-xl">🏠</span>
                     <span>HOME</span>
                 </a>
 
                 <!-- Shop -->
                 <a href="#"
-                    class="text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3 rounded-xl hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center space-x-2.5 sm:space-x-3 border-l-4 border-transparent hover:border-indigo-500">
+                    class="text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3  hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center space-x-2.5 sm:space-x-3 border-l-4 border-transparent hover:border-indigo-500">
                     <span class="text-lg sm:text-xl">🛍️</span>
                     <span>SHOP</span>
                 </a>
@@ -385,7 +412,7 @@
                 <!-- Category with Dropdown -->
                 <div class="category-dropdown-mobile">
                     <button id="mobile-category-toggle"
-                        class="w-full text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3 rounded-xl hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center justify-between border-l-4 border-transparent hover:border-indigo-500">
+                        class="w-full text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3  hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center justify-between border-l-4 border-transparent hover:border-indigo-500">
                         <div class="flex items-center space-x-2.5 sm:space-x-3">
                             <span class="text-lg sm:text-xl">📦</span>
                             <span>CATEGORY</span>
@@ -418,7 +445,7 @@
 
                 <!-- Contact -->
                 <a href="#"
-                    class="text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3 rounded-xl hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center space-x-2.5 sm:space-x-3 border-l-4 border-transparent hover:border-indigo-500">
+                    class="text-gray-700 hover:text-indigo-600 transition-all duration-200 p-2.5 sm:p-3  hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 flex items-center space-x-2.5 sm:space-x-3 border-l-4 border-transparent hover:border-indigo-500">
                     <span class="text-lg sm:text-xl">📞</span>
                     <span>CONTACT</span>
                 </a>
@@ -432,45 +459,80 @@
     <main class="space-y-[50px] md:space-y-[80px] lg:space-y-[120px]">
         <!-- Hero Section Start Form Here -->
         <!-- Grid: mobile-first stacked, 2-col from md -->
-        <section class="w-full max-w-[1737px] mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-            <!-- LEFT PANEL -->
-            <div
-                class="bg-gray-50 px-6 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 xl:px-20 flex flex-col justify-center order-3 md:order-1">
-                <div class="max-w-xl w-full md:mx-0">
+        <section class="w-full bg-gray-50 no-desktop-xpadding">
+            <div class="grid grid-cols-1 md:grid-cols-2 mx-auto">
+                <!-- LEFT PANEL -->
+                <div
+                    class=" px-6 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 xl:px-20 flex flex-col justify-center order-3 md:order-1">
+                    <div class="max-w-xl w-full md:mx-0">
 
-                    <!-- H1: Responsive heading with better mobile sizing -->
-                    <h2
-                        class="text-gray-900 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-['Inter'] leading-tight sm:leading-tight md:leading-[1.2] text-left">
-                        New Era Halloween
-                    </h2>
+                        <!-- H1: Responsive heading with better mobile sizing -->
+                        <h2
+                            class="text-gray-900 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-['Inter'] leading-tight sm:leading-tight md:leading-[1.2] text-left">
+                            New Era Halloween
+                        </h2>
 
-                    <!-- paragraph: comfortable line length and fluid text -->
-                    <p
-                        class="mt-2.5 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed max-w-prose text-left">
-                        All eyes are on Bata as Sneaker Fest 2025 has already swept the nation off its feet in style!
-                        This isn’t just an electrifying event with a debut in 2019, it’s a celebration.
-                    </p>
+                        <!-- paragraph: comfortable line length and fluid text -->
+                        <p
+                            class="mt-2.5 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed max-w-prose text-left">
+                            All eyes are on Bata as Sneaker Fest 2025 has already swept the nation off its feet in
+                            style!
+                            This isn’t just an electrifying event with a debut in 2019, it’s a celebration.
+                        </p>
 
-                    <!-- CTA -->
-                    <div class="mt-4 sm:mt-6 md:mt-8">
-                        <button
-                            class="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-md shadow-md hover:shadow-lg transition-all duration-200 uppercase tracking-wide">
-                            SHOP NOW
-                        </button>
+                        <!-- CTA -->
+                        <div class="mt-4 sm:mt-6 md:mt-8">
+                            <button
+                                class="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-md shadow-md hover:shadow-lg transition-all duration-200 uppercase tracking-wide">
+                                SHOP NOW
+                            </button>
+                        </div>
+
+                        <!-- Thumbnails area - Desktop only (after button) -->
+                        <div class="hidden md:block mt-8 md:mt-10 lg:mt-14">
+                            <div class="flex flex-col sm:flex-row sm:items-end sm:gap-6">
+                                <!-- Main small product preview -->
+                                <div class="flex-shrink-0">
+                                    <img src="assets/image/hero/main-cap.png" alt="cap small preview"
+                                        class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-cover rounded-lg shadow-md border border-gray-200" />
+                                </div>
+
+                                <!-- small thumbnails / gallery -->
+                                <div class="mt-4 sm:mt-0 flex items-center gap-3 sm:gap-4 overflow-x-auto pb-2">
+                                    <img src="assets/image/hero/cap-thumb.png" alt="thumb 1"
+                                        class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border-2 border-gray-300 hover:border-gray-900 cursor-pointer transition-all flex-shrink-0" />
+                                    <img src="assets/image/hero/thumb-3.png" alt="thumb 2"
+                                        class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border-2 border-gray-300 hover:border-gray-900 cursor-pointer transition-all flex-shrink-0" />
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
 
-                    <!-- Thumbnails area - Desktop only (after button) -->
-                    <div class="hidden md:block mt-8 md:mt-10 lg:mt-14">
-                        <div class="flex flex-col sm:flex-row sm:items-end sm:gap-6">
+                <!-- RIGHT PANEL (Hero Image) -->
+                <div class="relative w-full lg:bg-gradient-to-br lg:from-gray-100 lg:to-gray-200 order-1 md:order-2">
+                    <!-- On mobile we want the hero image to appear FIRST (above content) and be reasonably tall.
+             On md+ it becomes full-bleed, full-height. -->
+                    <img src="assets/image/hero/main-cap.png" alt="Hero product — brown cap"
+                        class="w-full h-72 sm:h-80 md:h-[500px] lg:h-[600px] xl:h-[700px] object-cover object-center" />
+
+                    <!-- Vignette overlay to emulate the moody dark right edge on very large screens -->
+                    <div class="absolute inset-0 hidden md:block vignette"></div>
+                </div>
+
+                <!-- THUMBNAILS SECTION (Shows on mobile only - order-2, right after hero image) -->
+                <div class="md:hidden bg-gray-50 px-6 py-4 sm:px-8 sm:py-6 order-2">
+                    <div class="max-w-xl w-full">
+                        <div class="flex items-center justify-start gap-3 sm:gap-4">
                             <!-- Main small product preview -->
                             <div class="flex-shrink-0">
                                 <img src="assets/image/hero/main-cap.png" alt="cap small preview"
-                                    class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-cover rounded-lg shadow-md border border-gray-200" />
+                                    class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shadow-md border border-gray-200" />
                             </div>
 
                             <!-- small thumbnails / gallery -->
-                            <div class="mt-4 sm:mt-0 flex items-center gap-3 sm:gap-4 overflow-x-auto pb-2">
+                            <div class="flex items-center gap-3">
                                 <img src="assets/image/hero/cap-thumb.png" alt="thumb 1"
                                     class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border-2 border-gray-300 hover:border-gray-900 cursor-pointer transition-all flex-shrink-0" />
                                 <img src="assets/image/hero/thumb-3.png" alt="thumb 2"
@@ -478,51 +540,841 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-
-            <!-- RIGHT PANEL (Hero Image) -->
-            <div class="relative w-full lg:bg-gradient-to-br lg:from-gray-100 lg:to-gray-200 order-1 md:order-2">
-                <!-- On mobile we want the hero image to appear FIRST (above content) and be reasonably tall.
-             On md+ it becomes full-bleed, full-height. -->
-                <img src="assets/image/hero/main-cap.png" alt="Hero product — brown cap"
-                    class="w-full h-72 sm:h-80 md:h-[500px] lg:h-[600px] xl:h-[700px] object-cover object-center" />
-
-                <!-- Vignette overlay to emulate the moody dark right edge on very large screens -->
-                <div class="absolute inset-0 hidden md:block vignette"></div>
-            </div>
-
-            <!-- THUMBNAILS SECTION (Shows on mobile only - order-2, right after hero image) -->
-            <div class="md:hidden bg-gray-50 px-6 py-4 sm:px-8 sm:py-6 order-2">
-                <div class="max-w-xl w-full">
-                    <div class="flex items-center justify-start gap-3 sm:gap-4">
-                        <!-- Main small product preview -->
-                        <div class="flex-shrink-0">
-                            <img src="assets/image/hero/main-cap.png" alt="cap small preview"
-                                class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg shadow-md border border-gray-200" />
-                        </div>
-
-                        <!-- small thumbnails / gallery -->
-                        <div class="flex items-center gap-3">
-                            <img src="assets/image/hero/cap-thumb.png" alt="thumb 1"
-                                class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border-2 border-gray-300 hover:border-gray-900 cursor-pointer transition-all flex-shrink-0" />
-                            <img src="assets/image/hero/thumb-3.png" alt="thumb 2"
-                                class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md border-2 border-gray-300 hover:border-gray-900 cursor-pointer transition-all flex-shrink-0" />
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
         </section>
         <!-- Hero Section End Form Here -->
 
+        <!-- Section: Headwear categories row -->
+        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8 no-desktop-xpadding py-6 sm:py-8">
+            <div class="w-full">
+                <ul class="headwear-row grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-x-8 sm:gap-x-10 md:gap-x-12 lg:gap-x-16 gap-y-6 sm:gap-y-8 justify-items-center">
+                    <!-- 1: Hat & Cap -->
+                    <li class="flex flex-col items-center group transform transition-all hover:-translate-y-1">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 transition-shadow group-hover:shadow-lg">
+                            <svg width="126" height="80" viewBox="0 0 126 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_285_1798)">
+                                    <path
+                                        d="M68.0387 59.7894L60.3947 59.1157L54.5987 58.6105C50.3147 58.442 39.3107 55.8315 39.3107 55.8315L31.7507 54.6526C26.4587 54.0631 22.3427 57.0105 22.3427 57.0105C22.3427 45.0526 25.6187 40.3368 25.6187 40.3368C31.4147 30.3999 47.4587 31.4105 47.4587 31.4105C72.0707 35.621 68.0387 59.7894 68.0387 59.7894Z"
+                                        stroke="black" stroke-miterlimit="10" />
+                                    <path
+                                        d="M59.8912 59.2842C59.8912 59.2842 55.1872 66.9473 49.1392 70.2315C49.1392 70.2315 43.8472 72.6736 37.9672 70.4C37.9672 70.4 32.6752 67.8736 31.1632 66.6947C31.1632 66.6947 26.2912 63.2421 21.2512 63.0736C20.4952 63.0736 19.6552 63.0736 18.8992 63.3263C18.8992 63.3263 16.2952 63.7473 14.5312 65.4315L22.0072 57.2631C22.0072 57.2631 26.1232 54.3157 31.4152 54.9052L38.9752 56.0842C38.9752 56.0842 49.9792 58.6947 54.2632 58.8631L60.0592 59.3684L59.8912 59.2842Z"
+                                        stroke="black" stroke-width="0.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M46.7875 31.5788C46.7875 31.5788 38.6395 30.9893 35.0275 37.2209"
+                                        stroke="black" stroke-width="0.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M46.9548 31.6632C46.9548 31.6632 49.3068 33.0948 51.3228 36.379C52.7508 38.6527 53.5068 41.179 53.7588 43.8737C54.0108 46.8211 54.4308 52.8843 54.0948 58.8632"
+                                        stroke="black" stroke-width="0.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M47.1232 31.5789H41.9992V30.9894C41.9992 30.3999 42.5032 29.8947 43.0912 29.8947H45.9472C46.6192 29.8947 47.1232 30.3999 47.1232 31.0736V31.6631V31.5789Z"
+                                        stroke="black" stroke-width="0.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M21.0835 63.0736C13.5235 73.4315 12.8515 68.9683 12.8515 68.9683C12.8515 67.7052 13.2715 66.6946 13.8595 65.9367C14.0275 65.7683 14.1955 65.5157 14.3635 65.3473C16.1275 63.6631 18.7315 63.242 18.7315 63.242C19.4875 63.0736 20.3275 62.9894 21.0835 62.9894V63.0736Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M68.0387 59.7894L60.3947 59.1157L54.5987 58.6105C50.3147 58.442 39.3107 55.8315 39.3107 55.8315L31.7507 54.6526C26.4587 54.0631 22.3427 57.0105 22.3427 57.0105C22.3427 45.0526 25.6187 40.3368 25.6187 40.3368C31.4147 30.3999 47.4587 31.4105 47.4587 31.4105C72.0707 35.621 68.0387 59.7894 68.0387 59.7894Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M59.8912 59.2842C59.8912 59.2842 55.1872 66.9473 49.1392 70.2315C49.1392 70.2315 43.8472 72.6736 37.9672 70.4C37.9672 70.4 32.6752 67.8736 31.1632 66.6947C31.1632 66.6947 26.2912 63.2421 21.2512 63.0736C20.4952 63.0736 19.6552 63.0736 18.8992 63.3263C18.8992 63.3263 16.2952 63.7473 14.5312 65.4315L22.0072 57.2631C22.0072 57.2631 26.1232 54.3157 31.4152 54.9052L38.9752 56.0842C38.9752 56.0842 49.9792 58.6947 54.2632 58.8631L60.0592 59.3684L59.8912 59.2842Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path d="M46.7875 31.5788C46.7875 31.5788 38.6395 30.9893 35.0275 37.2209"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M46.9548 31.6632C46.9548 31.6632 49.3068 33.0948 51.3228 36.379C52.7508 38.6527 53.5068 41.179 53.7588 43.8737C54.0108 46.8211 54.4308 52.8843 54.0948 58.8632"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M47.1232 31.5789H41.9992V30.9894C41.9992 30.3999 42.5032 29.8947 43.0912 29.8947H45.9472C46.6192 29.8947 47.1232 30.3999 47.1232 31.0736V31.6631V31.5789Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M46.1998 29.9788C46.8718 29.9788 47.3758 30.4841 47.3758 31.1578V31.4946C47.5438 31.4946 47.7118 31.4946 47.7118 31.4946C72.3238 35.7052 68.2918 59.8736 68.2918 59.8736L60.6478 59.1999L54.8518 58.6946C54.6838 58.6946 54.5998 58.6946 54.4318 58.6946C54.4318 58.6946 54.4318 58.8631 54.4318 58.9473V58.6946C49.8118 58.3578 39.5638 55.9157 39.5638 55.9157L32.0038 54.7367C31.5838 54.7367 31.0798 54.7367 30.6598 54.7367C28.1398 54.7367 26.0398 55.4104 24.6118 56.0841C26.0398 55.4946 27.9718 54.9052 30.1558 54.9052C32.3398 54.9052 30.9958 54.9052 31.4998 54.9052L39.0598 56.0841C39.0598 56.0841 50.0638 58.6946 54.3478 58.8631L60.1438 59.3683C60.1438 59.3683 55.4398 67.0315 49.3918 70.3157C49.3918 70.3157 46.9558 71.4946 43.5118 71.4946C40.0678 71.4946 40.0678 71.242 38.2198 70.4841C38.2198 70.4841 32.9278 67.9578 31.4158 66.7789C31.4158 66.7789 26.5438 63.3262 21.5038 63.1578C17.4718 68.7157 15.3718 69.9788 14.3638 69.9788C13.3558 69.9788 13.2718 68.9683 13.2718 68.9683C13.2718 67.7052 13.6918 66.6946 14.2798 65.9367C14.4478 65.7683 14.6158 65.5157 14.7838 65.3473L22.2598 57.1789C22.2598 57.1789 22.4278 57.0946 22.7638 56.842C22.8478 44.9683 26.0398 40.2525 26.0398 40.2525C29.6518 33.9367 37.3798 32.0841 42.5878 31.4946H42.4198V30.9052C42.4198 30.3157 42.9238 29.8104 43.5118 29.8104H46.3678M46.1998 28.2946H43.3438C42.0838 28.2946 41.0758 29.1367 40.6558 30.2315C34.9438 31.0736 27.9718 33.4315 24.3598 39.5789C23.9398 40.2525 21.0838 45.1367 20.8318 56.1683L13.4398 64.2525C13.1878 64.421 13.0198 64.6736 12.8518 64.9262C11.9278 66.1052 11.5078 67.4525 11.5078 68.9683C11.5078 70.4841 11.5078 69.1367 11.5078 69.221C11.6758 70.3999 12.6838 71.6631 14.2798 71.6631C15.8758 71.6631 17.8078 70.9052 22.2598 64.842C26.2918 65.2631 30.1558 67.8736 30.4078 68.042C32.0878 69.3052 36.9598 71.6631 37.4638 71.9157C37.4638 71.9157 37.4638 71.9157 37.5478 71.9157C39.3958 72.6736 41.4118 73.0104 43.5118 73.0104C47.2918 73.0104 49.9798 71.7473 50.1478 71.6631C55.6078 68.7157 59.8918 62.7367 61.1518 60.7999L68.2078 61.3894C68.2078 61.3894 68.2918 61.3894 68.3758 61.3894C69.2158 61.3894 69.8878 60.7999 70.0558 59.9578C70.0558 59.7052 71.1478 53.4736 68.9638 46.5683C66.9478 40.2525 61.9078 32.3367 48.9718 29.8104C48.5518 28.7999 47.5438 28.1262 46.3678 28.1262L46.1998 28.2946Z"
+                                        fill="black" />
+                                    <path
+                                        d="M22.1763 39.4946C22.1763 39.4946 19.1523 49.4315 19.8243 55.4104L14.2803 61.8946"
+                                        stroke="black" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path d="M38.6398 74.6105C38.6398 74.6105 43.7638 77.4736 48.8038 75.5368"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M104.16 27.8735C104.16 27.8735 107.1 29.3051 111.888 30.5683L116.844 31.9156C116.844 31.9156 118.944 32.6735 116.76 33.6841C116.76 33.6841 106.176 38.4841 85.1759 37.7262C64.1759 36.9683 81.8159 37.4735 80.1359 37.2209C76.6919 36.6314 70.9799 35.4525 69.9719 33.3472"
+                                        stroke="black" stroke-width="0.7" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M62.7481 21.6421L62.9161 30.4842C62.9161 30.4842 65.7721 33.6842 74.8441 33.8526C74.8441 33.8526 74.8441 33.8526 74.9281 33.8526C75.3481 32 74.9281 16.5052 74.9281 16.5052C74.9281 8.50523 79.9681 6.56839 82.8241 6.14734H81.9001C78.6241 6.39997 73.1641 7.07366 68.5441 9.26313C68.5441 9.26313 62.4961 12.1263 62.7481 21.5579V21.6421Z"
+                                        stroke="black" stroke-width="0.7" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M74.9281 33.8526C77.1121 33.8526 97.6921 34.4421 102.312 31.9158C102.312 31.9158 104.328 30.6526 104.076 28.2947V16.6737C104.076 16.6737 104.58 8.42102 95.7601 7.15787L85.6801 6.14734H82.7401C79.8841 6.56839 74.9281 8.42102 74.8441 16.5052C74.8441 16.5052 75.1801 32 74.8441 33.8526H74.9281Z"
+                                        stroke="black" stroke-width="0.7" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M83.5804 6.14732C83.3284 6.14732 83.0764 6.14732 82.8244 6.14732H85.1764C84.9244 6.14732 84.8404 6.06311 84.8404 6.06311C84.8404 6.06311 84.3364 6.06311 83.6644 6.06311L83.5804 6.14732Z"
+                                        stroke="black" stroke-width="0.7" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M104.16 27.8735C104.16 27.8735 107.1 29.3051 111.888 30.5683L116.844 31.9156C116.844 31.9156 118.944 32.6735 116.76 33.6841C116.76 33.6841 106.176 38.4841 85.1759 37.7262C64.1759 36.9683 81.8159 37.4735 80.1359 37.2209C76.6919 36.6314 70.9799 35.4525 69.9719 33.3472"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M81.2278 5.97887V6.23151H85.7638V5.97887C85.7638 5.30519 85.2598 4.79993 84.5878 4.79993H82.4878C81.8158 4.79993 81.2278 5.3894 81.2278 6.06308V5.97887Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M62.7481 21.6421L62.9161 30.4842C62.9161 30.4842 65.7721 33.6842 74.8441 33.8526C74.8441 33.8526 74.8441 33.8526 74.9281 33.8526C75.3481 32 74.9281 16.5052 74.9281 16.5052C74.9281 8.50523 79.9681 6.56839 82.8241 6.14734H81.9001C78.6241 6.39997 73.1641 7.07366 68.5441 9.26313C68.5441 9.26313 62.4961 12.1263 62.7481 21.5579V21.6421Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M74.9281 33.8526C77.1121 33.8526 97.6921 34.4421 102.312 31.9158C102.312 31.9158 104.328 30.6526 104.076 28.2947V16.6737C104.076 16.6737 104.58 8.42102 95.7601 7.15787L85.6801 6.14734H82.7401C79.8841 6.56839 74.9281 8.42102 74.8441 16.5052C74.8441 16.5052 75.1801 32 74.8441 33.8526H74.9281Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M81.9005 6.23149H85.7645H84.7565C84.7565 6.14728 84.3365 6.14728 83.5805 6.23149C83.1605 6.23149 82.5725 6.23149 81.9005 6.23149Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M83.5804 6.14732C83.3284 6.14732 83.0764 6.14732 82.8244 6.14732H85.1764C84.9244 6.14732 84.8404 6.06311 84.8404 6.06311C84.8404 6.06311 84.3364 6.06311 83.6644 6.06311L83.5804 6.14732Z"
+                                        stroke="black" stroke-width="0.8" />
+                                    <path
+                                        d="M84.8406 4.88414C85.5126 4.88414 86.0166 5.38941 86.0166 6.06309V6.31572L96.0966 7.32625C104.917 8.58941 104.413 16.842 104.413 16.842V28.042C104.413 28.042 107.437 29.4736 112.141 30.7368L117.097 32.0841C117.097 32.0841 119.197 32.842 117.013 33.8526C117.013 33.8526 107.941 37.9789 89.7966 37.9789C71.6526 37.9789 86.8566 37.9789 85.3446 37.9789C83.6646 37.9789 81.9846 37.7262 80.3046 37.4736C76.8606 36.8841 71.1486 35.7052 70.1406 33.5999C64.8486 32.6736 63.0846 30.6526 63.0846 30.6526L62.9166 21.8105C62.6646 12.3789 68.7126 9.51572 68.7126 9.51572C73.3326 7.32625 78.2046 6.65256 81.3966 6.39993V6.1473C81.3966 5.47362 81.9846 4.88414 82.6566 4.88414H84.7566M84.8406 3.19993H82.7406C81.5646 3.19993 80.6406 3.87362 80.1366 4.79993C75.6846 5.22099 71.5686 6.31572 68.0406 7.99993C67.7886 8.16835 60.9846 11.4526 61.3206 21.8947L61.4886 30.7368C61.4886 31.1578 61.6566 31.4947 61.9086 31.8315C62.1606 32.0841 64.0926 34.1052 69.2166 35.1157C70.1406 36.2105 72.5766 37.8947 80.1366 39.1578C81.8166 39.4105 83.5806 39.5789 85.3446 39.6631C86.8566 39.6631 88.3686 39.6631 89.8806 39.6631C108.109 39.6631 117.349 35.5368 117.769 35.3684C119.113 34.6947 119.785 33.8526 119.701 32.7578C119.701 31.5789 118.609 30.821 117.685 30.4841C117.685 30.4841 117.685 30.4841 117.601 30.4841L112.645 29.1368C109.621 28.3789 107.353 27.4526 106.177 26.9473V16.842C106.177 15.8315 106.177 7.07362 96.4326 5.64204L87.6126 4.71572C87.1086 3.7894 86.1846 3.11572 85.0086 3.11572L84.8406 3.19993Z"
+                                        fill="black" />
+                                    <path
+                                        d="M96.0958 3.62097C96.0958 3.62097 107.184 4.29466 108.192 10.1052C108.192 10.1052 109.368 15.5789 109.536 22.3999"
+                                        stroke="black" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path
+                                        d="M109.774 23.8382C109.947 23.7724 110.035 23.578 109.969 23.404C109.903 23.23 109.71 23.1422 109.536 23.208C109.362 23.2737 109.275 23.4681 109.34 23.6421C109.406 23.8161 109.6 23.9039 109.774 23.8382Z"
+                                        fill="black" />
+                                    <path
+                                        d="M121.044 32.0841C121.044 32.0841 124.404 35.7052 120.372 37.2209L113.484 39.6631"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M24.7802 23.4949H26.8802" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M20.7482 23.4949H22.8482" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M23.8566 22.5685V20.4633" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M23.8566 26.5264V24.5054" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M97.1043 57.2631H99.2043" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M93.0723 57.2631H95.0883" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M96.0959 56.2525V54.2314" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M96.0959 60.2946V58.1893" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_285_1798">
+                                        <rect width="126" height="80" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6 text-gray-900">Hat &amp; Cap</p>
+                    </li>
+
+                    <!-- 2: Baseball Caps -->
+                    <li class="flex flex-col items-center group transform transition-all hover:-translate-y-1">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 transition-shadow group-hover:shadow-lg">
+                            <svg width="95" height="80" viewBox="0 0 95 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M72.0153 8.44458H73.6434" stroke="#000201" stroke-width="0.7"
+                                    stroke-miterlimit="10" stroke-linecap="round" />
+                                <path d="M68.691 8.4447H70.387" stroke="#000201" stroke-width="0.7"
+                                    stroke-miterlimit="10" stroke-linecap="round" />
+                                <path d="M71.201 7.62977V6" stroke="#000201" stroke-width="0.7" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path d="M71.201 10.8892V9.2594" stroke="#000201" stroke-width="0.7"
+                                    stroke-miterlimit="10" stroke-linecap="round" />
+                                <path
+                                    d="M19.4398 56.3188C8.58543 71.1904 7.5 64.6714 7.5 64.6714C7.5 62.9058 8.11056 61.4797 8.99247 60.3932C9.19599 60.1216 9.46735 59.85 9.73871 59.5783C12.2488 57.2016 16.0478 56.5904 16.0478 56.5904C17.2011 56.3188 18.3543 56.2509 19.5076 56.3188H19.4398Z"
+                                    stroke="black" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M87.1433 51.5652L76.0176 50.6145L67.6055 49.8675C61.4321 49.5959 45.4898 45.861 45.4898 45.861L34.6355 44.2312C27.0374 43.4163 21.0675 47.6266 21.0675 47.6266C21.1354 30.514 25.8163 23.7233 25.8163 23.7233C34.1606 9.46286 57.2939 10.9568 57.2939 10.9568C92.8418 17.0005 87.0076 51.5652 87.0076 51.5652H87.1433Z"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M75.3394 50.954C75.3394 50.954 68.6233 61.8871 59.7363 66.5726C59.7363 66.5726 52.1383 70.1038 43.5226 66.7764C43.5226 66.7764 35.8568 63.1094 33.6859 61.4796C33.6859 61.4796 26.6984 56.5224 19.3717 56.3187C18.2185 56.3187 17.0652 56.3187 15.9119 56.5903C15.9119 56.5903 12.1129 57.2015 9.60284 59.5782L20.3215 47.8982C20.3215 47.8982 26.2914 43.688 33.8894 44.5029L44.7438 46.1326C44.7438 46.1326 60.6861 49.8675 66.8595 50.1392L75.2716 50.8861L75.3394 50.954Z"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M56.4802 11.2285C56.4802 11.2285 44.7439 10.3457 39.4525 19.3094"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M56.6837 11.2285C56.6837 11.2285 60.0757 13.3336 62.9928 17.9513C65.028 21.2108 66.1813 24.8778 66.5205 28.6127C66.9275 32.8908 67.5381 41.5829 66.9954 50.1392"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M56.9553 11.2285H49.5608V10.3457C49.5608 9.46292 50.307 8.71594 51.1889 8.71594H55.3271C56.209 8.71594 56.9553 9.46292 56.9553 10.3457V11.1606V11.2285Z"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M76.018 50.6148L87.1437 51.5655C87.1437 51.5655 92.9779 16.9329 57.4299 10.9571C57.4299 10.9571 57.2943 10.9571 57.0229 10.9571V10.4138C57.0229 9.53103 56.2767 8.78406 55.3948 8.78406H51.2565C50.3746 8.78406 49.6284 9.53103 49.6284 10.4138V11.2966H49.8998C42.3696 12.1115 31.2439 14.8278 25.9524 23.8594C25.9524 23.8594 21.2714 30.5822 21.2036 47.6268C20.7287 47.8985 20.4574 48.1022 20.4574 48.1022L9.73871 59.7822C9.46735 60.0538 9.26383 60.2575 8.99247 60.5292C8.11056 61.6157 7.5 63.0417 7.5 64.8752C7.5 64.8752 8.51759 71.3264 19.4398 56.5227C26.7664 56.7264 33.7539 61.6836 33.7539 61.6836C35.9248 63.3134 43.5907 66.9803 43.5907 66.9803C52.2063 70.3078 59.8043 66.7766 59.8043 66.7766C68.6235 62.091 75.4074 51.158 75.4074 51.158L76.1537 50.8864"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M21.5431 19.9888C21.5431 19.9888 16.7943 35.4716 17.9476 44.7748L9.19629 54.825"
+                                    stroke="black" stroke-width="0.7" stroke-miterlimit="10" stroke-linecap="round" />
+                                <path d="M41.4199 70.9869C41.4199 70.9869 49.425 75.4688 57.3622 72.413" stroke="black"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M21.8144 19.3099C21.9643 19.3099 22.0858 19.1882 22.0858 19.0382C22.0858 18.8882 21.9643 18.7666 21.8144 18.7666C21.6646 18.7666 21.5431 18.8882 21.5431 19.0382C21.5431 19.1882 21.6646 19.3099 21.8144 19.3099Z"
+                                    fill="#050505" />
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6 text-gray-900">Baseball Caps</p>
+                    </li>
+
+                    <!-- 3: Beanies -->
+                    <li class="flex flex-col items-center group transform transition-all hover:-translate-y-1">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-white border border-gray-200 transition-shadow group-hover:shadow-lg">
+                            <svg width="101" height="80" viewBox="0 0 101 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_285_1880)">
+                                    <path d="M80.4979 13.0078H82.2154" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M77.1318 13.0078H78.8493" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M79.6736 12.1825V10.5315" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M79.6735 15.4843V13.7645" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path
+                                        d="M13.6527 34.6079C13.8045 34.6079 13.9275 34.4847 13.9275 34.3328C13.9275 34.1808 13.8045 34.0576 13.6527 34.0576C13.501 34.0576 13.3779 34.1808 13.3779 34.3328C13.3779 34.4847 13.501 34.6079 13.6527 34.6079Z"
+                                        fill="black" />
+                                    <path
+                                        d="M80.7721 69.0717C80.6346 69.0717 80.4286 69.0717 80.2912 69.0717C79.6728 69.0029 78.9858 68.7965 78.1614 68.6589L80.7721 69.1405V69.0717Z"
+                                        fill="white" />
+                                    <path
+                                        d="M80.2228 69.0031C78.9175 68.9343 77.4748 68.7279 76.1008 68.5215C76.1008 68.5215 68.6125 66.9394 55.0099 65.5636C55.0099 65.5636 27.9419 62.0553 21.965 60.0603C21.965 60.0603 18.9422 59.0973 15.9881 57.4463C15.8507 57.4463 15.782 57.3087 15.6446 57.24C14.7515 56.3457 11.1104 52.4934 15.1637 50.9113C15.9881 50.5673 16.8812 50.4985 17.7743 50.5673C21.6215 50.9113 36.5295 52.5622 49.3077 58.4782C49.3077 58.4782 68.8186 66.3202 78.0244 68.5903C78.8488 68.7967 79.5358 68.9343 80.1541 69.0031H80.2228Z"
+                                        fill="#9B9B9B" />
+                                    <path
+                                        d="M81.1835 69.1405C80.9087 69.1405 80.5652 69.1405 80.2217 69.0029C79.6034 68.9342 78.9164 68.7278 78.092 68.5902L80.7026 69.0717H81.1148L81.1835 69.1405Z"
+                                        fill="white" />
+                                    <path
+                                        d="M88.8104 48.7099L88.5356 53.1813C88.5356 53.3188 88.5356 53.5252 88.4669 53.6628C88.2608 53.6628 87.986 53.6628 87.7112 53.6628C77.8183 54.1443 65.5897 48.4347 61.1928 46.2335C59.9562 45.6144 58.6509 44.9952 57.2769 44.5137L38.1783 37.7035C25.9496 33.92 19.9727 36.2589 18.9422 36.6716C18.8735 36.6716 18.7361 36.7404 18.6674 36.8092C18.5987 36.8092 18.4613 36.8092 18.3926 36.9468C18.3926 36.878 18.3926 36.8092 18.3926 36.7404C18.3926 36.6028 18.53 36.4653 18.5987 36.3965C20.2475 34.1952 29.4533 22.1569 37.0791 17.9607C37.0791 17.9607 37.1478 17.9607 37.2165 17.8919C38.1096 17.3416 49.3077 10.7378 60.6432 12.2511C60.6432 12.2511 72.1162 13.5582 80.3602 23.3951C80.3602 23.3951 89.6348 35.0895 88.7417 48.8475L88.8104 48.7099Z"
+                                        stroke="#221F20" stroke-width="3" />
+                                    <path
+                                        d="M91.0769 56.8958C91.0769 56.8958 91.0769 56.9646 91.0769 57.0334L90.4586 65.2194C90.4586 65.4946 90.4586 65.701 90.3212 65.9761C89.9777 67.008 88.8785 69.2093 85.4435 69.1405C85.4435 69.1405 83.4512 69.2093 80.7718 69.0717L78.1612 68.5901C69.0241 66.3889 49.4445 58.478 49.4445 58.478C36.6663 52.562 21.6896 50.9111 17.9111 50.5671C17.018 50.4983 16.1249 50.5671 15.3005 50.9111C11.2472 52.4245 14.8883 56.3455 15.7814 57.2398C12.7586 55.3824 10.0106 52.7684 11.0411 49.4665C11.0411 49.3977 11.0411 49.3289 11.1098 49.2601C11.3846 48.0907 13.7891 38.6664 18.392 36.8091C18.4607 36.8091 18.5981 36.7403 18.6668 36.6715C18.8042 36.6715 18.8729 36.6027 18.9416 36.534C19.9034 36.1212 25.949 33.7824 38.1777 37.5658L57.2764 44.376C58.6504 44.8576 59.9557 45.4079 61.1923 46.0958C65.5891 48.3659 77.749 54.0754 87.7106 53.5251C87.9854 53.5251 88.1915 53.5251 88.4663 53.5251C90.0464 53.8003 91.2143 55.1761 91.1456 56.827L91.0769 56.8958Z"
+                                        stroke="#221F20" stroke-width="3" />
+                                    <path
+                                        d="M80.7721 69.0717C80.6346 69.0717 80.4286 69.0717 80.2912 69.0717C79.6728 69.0029 78.9858 68.7965 78.1614 68.6589L80.7721 69.1405V69.0717Z"
+                                        stroke="#221F20" stroke-width="3" />
+                                    <path
+                                        d="M80.2228 69.0031C78.9175 68.9343 77.4748 68.7279 76.1008 68.5215C76.1008 68.5215 68.6125 66.9394 55.0099 65.5636C55.0099 65.5636 27.9419 62.0553 21.965 60.0603C21.965 60.0603 18.9422 59.0973 15.9881 57.4463C15.8507 57.4463 15.782 57.3087 15.6446 57.24C14.7515 56.3457 11.1104 52.4934 15.1637 50.9113C15.9881 50.5673 16.8812 50.4985 17.7743 50.5673C21.6215 50.9113 36.5295 52.5622 49.3077 58.4782C49.3077 58.4782 68.8186 66.3202 78.0244 68.5903C78.8488 68.7967 79.5358 68.9343 80.1541 69.0031H80.2228Z"
+                                        stroke="#221F20" stroke-width="3" />
+                                    <path
+                                        d="M81.1835 69.1405C80.9087 69.1405 80.5652 69.1405 80.2217 69.0029C79.6034 68.9342 78.9164 68.7278 78.092 68.5902L80.7026 69.0717H81.1148L81.1835 69.1405Z"
+                                        stroke="#221F20" stroke-width="3" />
+                                    <path
+                                        d="M88.8104 48.7099L88.5356 53.1813C88.5356 53.3188 88.5356 53.5252 88.4669 53.6628C88.2608 53.6628 87.986 53.6628 87.7112 53.6628C77.8183 54.1443 65.5897 48.4347 61.1928 46.2335C59.9562 45.6144 58.6509 44.9952 57.2769 44.5137L38.1783 37.7035C25.9496 33.92 19.9727 36.2589 18.9422 36.6716C18.8735 36.6716 18.7361 36.7404 18.6674 36.8092C18.5987 36.8092 18.4613 36.8092 18.3926 36.9468C18.3926 36.878 18.3926 36.8092 18.3926 36.7404C18.3926 36.6028 18.53 36.4653 18.5987 36.3965C20.2475 34.1952 29.4533 22.1569 37.0791 17.9607C37.0791 17.9607 37.1478 17.9607 37.2165 17.8919C38.1096 17.3416 49.3077 10.7378 60.6432 12.2511C60.6432 12.2511 72.1162 13.5582 80.3602 23.3951C80.3602 23.3951 89.6348 35.0895 88.7417 48.8475L88.8104 48.7099Z"
+                                        stroke="#221F20" />
+                                    <path
+                                        d="M91.0769 56.8958C91.0769 56.8958 91.0769 56.9646 91.0769 57.0334L90.4586 65.2194C90.4586 65.4946 90.4586 65.701 90.3212 65.9761C89.9777 67.008 88.8785 69.2093 85.4435 69.1405C85.4435 69.1405 83.4512 69.2093 80.7718 69.0717L78.1612 68.5901C69.0241 66.3889 49.4445 58.478 49.4445 58.478C36.6663 52.562 21.6896 50.9111 17.9111 50.5671C17.018 50.4983 16.1249 50.5671 15.3005 50.9111C11.2472 52.4245 14.8883 56.3455 15.7814 57.2398C12.7586 55.3824 10.0106 52.7684 11.0411 49.4665C11.0411 49.3977 11.0411 49.3289 11.1098 49.2601C11.3846 48.0907 13.7891 38.6664 18.392 36.8091C18.4607 36.8091 18.5981 36.7403 18.6668 36.6715C18.8042 36.6715 18.8729 36.6027 18.9416 36.534C19.9034 36.1212 25.949 33.7824 38.1777 37.5658L57.2764 44.376C58.6504 44.8576 59.9557 45.4079 61.1923 46.0958C65.5891 48.3659 77.749 54.0754 87.7106 53.5251C87.9854 53.5251 88.1915 53.5251 88.4663 53.5251C90.0464 53.8003 91.2143 55.1761 91.1456 56.827L91.0769 56.8958Z"
+                                        stroke="#221F20" />
+                                    <path
+                                        d="M80.7721 69.0717C80.6346 69.0717 80.4286 69.0717 80.2912 69.0717C79.6728 69.0029 78.9858 68.7965 78.1614 68.6589L80.7721 69.1405V69.0717Z"
+                                        stroke="#221F20" />
+                                    <path
+                                        d="M80.2228 69.0031C78.9175 68.9343 77.4748 68.7279 76.1008 68.5215C76.1008 68.5215 68.6125 66.9394 55.0099 65.5636C55.0099 65.5636 27.9419 62.0553 21.965 60.0603C21.965 60.0603 18.9422 59.0973 15.9881 57.4463C15.8507 57.4463 15.782 57.3087 15.6446 57.24C14.7515 56.3457 11.1104 52.4934 15.1637 50.9113C15.9881 50.5673 16.8812 50.4985 17.7743 50.5673C21.6215 50.9113 36.5295 52.5622 49.3077 58.4782C49.3077 58.4782 68.8186 66.3202 78.0244 68.5903C78.8488 68.7967 79.5358 68.9343 80.1541 69.0031H80.2228Z"
+                                        stroke="#221F20" />
+                                    <path
+                                        d="M81.1835 69.1405C80.9087 69.1405 80.5652 69.1405 80.2217 69.0029C79.6034 68.9342 78.9164 68.7278 78.092 68.5902L80.7026 69.0717H81.1148L81.1835 69.1405Z"
+                                        stroke="#221F20" />
+                                    <path
+                                        d="M88.8104 48.7099L88.5356 53.1813C88.5356 53.3188 88.5356 53.5252 88.4669 53.6628C88.2608 53.6628 87.986 53.6628 87.7112 53.6628C77.8183 54.1443 65.5897 48.4347 61.1928 46.2335C59.9562 45.6144 58.6509 44.9952 57.2769 44.5137L38.1783 37.7035C25.9496 33.92 19.9727 36.2589 18.9422 36.6716C18.8735 36.6716 18.7361 36.7404 18.6674 36.8092C18.5987 36.8092 18.4613 36.8092 18.3926 36.9468C18.3926 36.878 18.3926 36.8092 18.3926 36.7404C18.3926 36.6028 18.53 36.4653 18.5987 36.3965C20.2475 34.1952 29.4533 22.1569 37.0791 17.9607C37.0791 17.9607 37.1478 17.9607 37.2165 17.8919C38.1096 17.3416 49.3077 10.7378 60.6432 12.2511C60.6432 12.2511 72.1162 13.5582 80.3602 23.3951C80.3602 23.3951 89.6348 35.0895 88.7417 48.8475L88.8104 48.7099Z"
+                                        stroke="#221F20" stroke-width="0.7" />
+                                    <path
+                                        d="M91.0769 56.8958C91.0769 56.8958 91.0769 56.9646 91.0769 57.0334L90.4586 65.2194C90.4586 65.4946 90.4586 65.701 90.3212 65.9761C89.9777 67.008 88.8785 69.2093 85.4435 69.1405C85.4435 69.1405 83.4512 69.2093 80.7718 69.0717L78.1612 68.5901C69.0241 66.3889 49.4445 58.478 49.4445 58.478C36.6663 52.562 21.6896 50.9111 17.9111 50.5671C17.018 50.4983 16.1249 50.5671 15.3005 50.9111C11.2472 52.4245 14.8883 56.3455 15.7814 57.2398C12.7586 55.3824 10.0106 52.7684 11.0411 49.4665C11.0411 49.3977 11.0411 49.3289 11.1098 49.2601C11.3846 48.0907 13.7891 38.6664 18.392 36.8091C18.4607 36.8091 18.5981 36.7403 18.6668 36.6715C18.8042 36.6715 18.8729 36.6027 18.9416 36.534C19.9034 36.1212 25.949 33.7824 38.1777 37.5658L57.2764 44.376C58.6504 44.8576 59.9557 45.4079 61.1923 46.0958C65.5891 48.3659 77.749 54.0754 87.7106 53.5251C87.9854 53.5251 88.1915 53.5251 88.4663 53.5251C90.0464 53.8003 91.2143 55.1761 91.1456 56.827L91.0769 56.8958Z"
+                                        stroke="#221F20" stroke-width="0.7" />
+                                    <path
+                                        d="M80.7721 69.0717C80.6346 69.0717 80.4286 69.0717 80.2912 69.0717C79.6728 69.0029 78.9858 68.7965 78.1614 68.6589L80.7721 69.1405V69.0717Z"
+                                        stroke="#221F20" stroke-width="0.7" />
+                                    <path
+                                        d="M80.2228 69.0031C78.9175 68.9343 77.4748 68.7279 76.1008 68.5215C76.1008 68.5215 68.6125 66.9394 55.0099 65.5636C55.0099 65.5636 27.9419 62.0553 21.965 60.0603C21.965 60.0603 18.9422 59.0973 15.9881 57.4463C15.8507 57.4463 15.782 57.3087 15.6446 57.24C14.7515 56.3457 11.1104 52.4934 15.1637 50.9113C15.9881 50.5673 16.8812 50.4985 17.7743 50.5673C21.6215 50.9113 36.5295 52.5622 49.3077 58.4782C49.3077 58.4782 68.8186 66.3202 78.0244 68.5903C78.8488 68.7967 79.5358 68.9343 80.1541 69.0031H80.2228Z"
+                                        stroke="#221F20" stroke-width="0.7" />
+                                    <path
+                                        d="M81.1835 69.1405C80.9087 69.1405 80.5652 69.1405 80.2217 69.0029C79.6034 68.9342 78.9164 68.7278 78.092 68.5902L80.7026 69.0717H81.1148L81.1835 69.1405Z"
+                                        stroke="#221F20" stroke-width="0.7" />
+                                    <path
+                                        d="M80.2228 69.0028C78.9175 68.934 77.4748 68.7277 76.1008 68.5213C76.1008 68.5213 68.6124 66.9391 55.0098 65.5633C55.0098 65.5633 27.9419 62.055 21.965 60.0601C21.965 60.0601 18.9422 59.097 15.988 57.4461C15.8506 57.4461 15.7819 57.3085 15.6445 57.2397C14.7514 56.3454 11.1103 52.4932 15.1636 50.911C15.988 50.5671 16.8811 50.4983 17.7742 50.5671C21.6215 50.911 36.5294 52.562 49.3077 58.4779C49.3077 58.4779 68.8185 66.32 78.0244 68.5901C78.8488 68.7964 79.5358 68.934 80.1541 69.0028H80.2228Z"
+                                        fill="#221F20" stroke="#221F20" stroke-width="0.8" stroke-miterlimit="10" />
+                                    <path
+                                        d="M10.3547 57.7215C10.3547 57.7215 5.47701 53.2501 8.56852 45.8208L13.2401 35.4335"
+                                        stroke="black" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path
+                                        d="M95.3368 65.2196V69.691C95.3368 69.691 93.2071 75.1942 83.8638 74.0247C83.8638 74.0247 72.8718 71.8922 68.9559 71.961"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_285_1880">
+                                        <rect width="101" height="80" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6 text-gray-900">Beanies</p>
+                    </li>
+
+                    <!-- 4: Docker Hat -->
+                    <li class="flex flex-col items-center">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-28 h-28 rounded-full bg-white border border-gray-200">
+                            <svg width="116" height="80" viewBox="0 0 116 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_285_1924)">
+                                    <path
+                                        d="M34.09 71.7446C23.008 71.7446 18.3634 70.04 16.4077 68.7412C15.5929 68.173 15.104 67.2801 14.941 66.3872L13.6372 56.3218C13.3928 54.2924 13.6372 52.8313 14.4521 51.8572C15.1855 50.9643 16.0818 50.8832 16.2448 50.8832L17.956 50.6397C19.3412 43.0094 25.1266 21.9856 47.9424 16.5471V16.3035C47.9424 16.06 47.861 15.6542 48.1869 15.1671C48.6758 14.4366 49.6536 13.9495 51.2833 13.7872C51.7722 13.7872 52.1797 13.706 52.5056 13.6248H52.7501L54.2983 13.4625C55.928 13.3002 56.9873 13.4625 57.6392 14.0307C58.0466 14.4366 58.1281 14.8424 58.2096 15.086V15.3295C58.3725 15.3295 58.617 15.3295 58.78 15.3295C81.8402 15.3295 92.5148 33.9992 95.7742 41.0613L97.5668 40.8177C97.6483 40.8177 98.5446 40.6554 99.441 41.3048C100.5 42.0353 101.152 43.4153 101.397 45.4446L102.7 55.5912C102.782 56.5653 102.537 57.5393 101.886 58.2699C99.5225 61.0298 90.8851 66.2248 59.9207 69.9588C48.7573 71.4199 40.3643 71.9069 34.09 71.9069V71.7446ZM50.1425 16.2224L50.3055 17.1965C50.3055 17.7647 49.9796 18.2517 49.4907 18.414C27.0008 23.2844 21.4598 43.3341 20.0746 51.7761C20.0746 52.2631 19.5857 52.5878 19.0967 52.669L16.4892 52.9937C16.1633 52.9937 15.5114 53.7242 15.8373 55.9971L17.1411 66.1437C17.1411 66.4684 17.3856 66.793 17.7115 67.0366C19.9116 68.5789 28.4675 71.7446 59.6763 67.6859C90.9665 63.8708 98.3817 58.7569 100.174 56.7276C100.419 56.4841 100.5 56.0782 100.5 55.7535L99.1965 45.6069C98.8706 43.2529 98.0557 42.8471 97.8113 42.8471L95.2038 43.1718C94.7149 43.1718 94.2259 43.0094 94.063 42.5224C90.6406 34.7298 80.292 16.6282 57.3132 17.44C56.7428 17.44 56.2539 17.0341 56.1724 16.4659L56.0095 15.4918C55.8465 15.4918 55.3576 15.4106 54.5427 15.4918C54.0538 15.4918 53.6464 15.573 53.3205 15.6542H53.076L51.5278 15.8165C50.6315 15.8977 50.224 16.06 50.0611 16.2224H50.1425Z"
+                                        fill="#221F20" />
+                                    <path
+                                        d="M35.3937 73.1246C24.3117 73.1246 19.6671 71.42 17.7115 70.1212C16.8966 69.553 16.4077 68.6601 16.2447 67.7672L14.941 57.7018C14.6965 55.6724 14.941 54.2113 15.7558 53.2373C16.4892 52.3444 17.3855 52.2632 17.5485 52.2632L19.2597 52.0197C20.6449 44.3894 26.4304 23.3657 49.2462 17.9271V17.6836C49.2462 17.44 49.1647 17.0342 49.4906 16.5471C49.9795 15.8166 50.9573 15.3295 52.587 15.1672C53.076 15.1672 53.4834 15.086 53.8093 15.0049H54.0538L55.602 14.8425C57.2317 14.6802 58.291 14.8425 58.9429 15.4107C59.3503 15.8166 59.4318 16.2224 59.5133 16.466V16.7095C59.6762 16.7095 59.9207 16.7095 60.0837 16.7095C83.1439 16.7095 93.8185 35.3792 97.0779 42.4413L98.8706 42.1977C98.952 42.1977 99.8484 42.0354 100.745 42.6848C101.804 43.4153 102.456 44.7953 102.7 46.8246L104.004 56.9712C104.086 57.9453 103.841 58.9193 103.189 59.6499C100.826 62.4098 92.1888 67.6048 61.2245 71.3388C50.061 72.7999 41.6681 73.2869 35.3937 73.2869V73.1246ZM51.5277 17.6024L51.6907 18.5765C51.6907 19.1447 51.3648 19.6317 50.8759 19.794C28.386 24.6644 22.845 44.7141 21.4598 53.1561C21.4598 53.6431 20.9709 53.9678 20.4819 54.049L17.8744 54.3737C17.5485 54.3737 16.8966 55.1042 17.2225 57.3771L18.5263 67.5237C18.5263 67.8484 18.7708 68.1731 19.0967 68.4166C21.2968 69.9589 29.8527 73.1246 61.0615 69.066C92.3517 65.2508 99.7669 60.1369 101.56 58.1076C101.804 57.8641 101.885 57.4582 101.885 57.1335L100.582 46.9869C100.256 44.6329 99.4409 44.2271 99.1965 44.2271L96.589 44.5518C96.1001 44.5518 95.6112 44.3894 95.4482 43.9024C92.0258 36.1098 81.6772 18.0082 58.6984 18.82C58.128 18.82 57.6391 18.4141 57.5576 17.8459L57.3947 16.8718C57.2317 16.8718 56.7428 16.7907 55.9279 16.8718C55.439 16.8718 55.0316 16.953 54.7057 17.0342H54.4612L52.913 17.1965C52.0167 17.2777 51.6092 17.44 51.4463 17.6024H51.5277Z"
+                                        fill="#221F20" />
+                                    <path
+                                        d="M52.9947 14.5986C52.9947 14.5986 51.7725 14.7609 54.543 14.4363C57.232 14.1116 57.232 15.0856 57.232 15.0856L57.3949 16.3844C81.433 15.5727 92.1076 35.0542 95.1225 42.1162L97.73 41.7915C97.73 41.7915 99.8486 41.3856 100.338 45.5255L101.641 55.6721C101.723 56.3214 101.56 56.9708 101.071 57.4579C99.1153 59.7307 91.2112 65.0069 59.8395 68.7409C28.4678 72.7995 19.5044 69.6338 17.0598 67.9292C14.6153 66.2245 16.1635 66.9551 16.082 66.3057L14.7783 56.1591C14.2894 52.0193 16.408 51.9381 16.408 51.9381L19.0155 51.6134C20.2378 43.9832 25.7787 22.4724 49.2464 17.3585L49.0835 16.0597C49.0835 16.0597 48.839 15.0856 51.528 14.761C54.217 14.4363 53.0762 14.5986 53.0762 14.5986"
+                                        stroke="#221F20" stroke-width="0.7" />
+                                    <path d="M32.3788 10.7841H34.3345" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M28.3857 10.7841H30.4229" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M31.4004 9.80984V7.86169" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M31.4004 13.7061V11.7579" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path
+                                        d="M57.5582 52.9936C57.5582 52.9936 48.1874 54.4547 31.7275 55.3476C15.9194 56.1593 17.3861 52.5066 17.3861 52.5066L18.7713 51.3701L16.1638 51.6948C16.1638 51.6948 14.0452 51.776 14.5341 55.9158L15.7564 65.9812C15.7564 66.6306 16.1638 67.1988 16.7342 67.6047C19.1788 69.3093 28.0606 72.4751 59.4324 68.4976H59.1064C90.4782 64.8448 98.3822 59.5686 100.338 57.2958C102.294 55.0229 100.99 56.1593 100.908 55.5099L99.686 45.4445C99.1971 41.3047 97.0785 41.7106 97.0785 41.7106L94.4709 42.0353L96.1006 42.7658C96.1006 42.7658 98.3822 45.9316 82.9001 49.0161C66.766 52.1819 57.3138 52.9936 57.3138 52.9936L52.8321 16.6282C85.3446 12.6507 95.5303 44.5516 95.5303 44.5516L90.3967 47.1492C90.3967 47.1492 83.1445 19.2257 56.2545 16.3035H56.9063L56.7434 15.0047C56.7434 15.0047 56.7434 14.0306 54.0544 14.3553C51.3654 14.68 52.5062 14.5177 52.5062 14.5177H52.8321C52.8321 14.5177 53.9729 14.3553 51.2839 14.68C48.5949 15.0047 48.8393 15.9788 48.8393 15.9788L49.0023 17.2775L49.6542 17.1152C24.3123 26.4501 24.0679 55.2664 24.0679 55.2664L18.4454 53.9677C18.4454 53.9677 20.564 20.5245 53.0766 16.547"
+                                        stroke="#221F20" stroke-width="1.2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M106.449 47.7986L107.916 58.4322C107.916 58.4322 108.16 63.0591 103.841 64.926C99.6041 66.793 92.8408 69.8776 92.8408 69.8776"
+                                        stroke="#221F20" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M14.6152 46.1751C14.6152 46.1751 16.5708 36.3532 23.4156 27.6677"
+                                        stroke="#221F20" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path
+                                        d="M24.4743 26.3687C24.6543 26.3687 24.8002 26.2234 24.8002 26.044C24.8002 25.8647 24.6543 25.7194 24.4743 25.7194C24.2942 25.7194 24.1483 25.8647 24.1483 26.044C24.1483 26.2234 24.2942 26.3687 24.4743 26.3687Z"
+                                        fill="#221F20" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_285_1924">
+                                        <rect width="116" height="80" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6">Docker Hat</p>
+                    </li>
+
+                    <!-- 5: 5 Panel Cap -->
+                    <li class="flex flex-col items-center">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-28 h-28 rounded-full bg-white border border-gray-200">
+                            <svg width="120" height="80" viewBox="0 0 120 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_285_1946)">
+                                    <path d="M88.5588 15.7192H90.2246" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M85.2935 15.7194H86.9592" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M87.759 14.9199V13.3208" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M87.759 18.1183V16.4525" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M67.9021 74.4214C67.9021 74.4214 76.8307 75.0211 83.4271 72.0894"
+                                        stroke="#221F20" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M34.121 33.1768C34.2682 33.1768 34.3875 33.0575 34.3875 32.9103C34.3875 32.7631 34.2682 32.6438 34.121 32.6438C33.9738 32.6438 33.8545 32.7631 33.8545 32.9103C33.8545 33.0575 33.9738 33.1768 34.121 33.1768Z"
+                                        fill="black" />
+                                    <path d="M34.187 33.8433V50.9674C34.187 50.9674 23.0596 55.2984 19.8613 55.3651"
+                                        stroke="black" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path
+                                        d="M37.7847 53.9655C37.7847 53.9655 33.0539 56.2975 25.5246 58.2298L17.6622 60.2954C17.6622 60.2954 14.3972 61.4281 17.8621 63.1605C17.8621 63.1605 34.5864 70.7565 67.9686 69.5571C70.6338 69.4905 73.2991 69.224 75.8977 68.8242C81.428 67.958 90.3566 66.0257 92.0224 62.6941"
+                                        stroke="#9B9B9B" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M74.0985 19.7172H66.9023V19.2508C66.9023 18.1847 67.7685 17.3185 68.8346 17.3185H72.0996C73.1657 17.3185 74.0985 18.1847 74.0985 19.3174V19.7172Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M37.7849 54.632V36.3085C37.7849 36.3085 36.9187 23.3821 50.9112 21.3165L68.4351 19.5841C68.4351 19.5841 82.8941 19.3842 94.288 24.7147C94.288 24.7147 103.949 29.2456 103.483 44.1043L103.283 58.0302C103.283 58.0302 98.8189 63.0275 84.3599 63.3607C84.3599 63.3607 48.3126 64.4934 40.5834 60.2957C40.5834 60.2957 37.3184 58.2967 37.7849 54.632Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M72.4992 17.2519C73.5653 17.2519 74.4982 18.1181 74.4982 19.2508V19.6506C79.6954 19.9838 87.2913 21.1165 94.6874 24.5813C94.6874 24.5813 104.349 29.1122 103.882 43.9709L103.683 57.8968C103.683 57.8968 100.817 61.0285 92.4885 62.4944C90.8228 65.8259 81.8276 67.7582 76.3638 68.6244C73.7652 69.0242 71.1 69.2907 68.4347 69.3574C65.9694 69.424 63.6373 69.4906 61.3718 69.4906C32.6539 69.4906 18.2616 62.9608 18.2616 62.9608C14.7968 61.2284 18.0617 60.0957 18.0617 60.0957L25.9241 58.0301C33.4534 56.0978 38.1842 53.7657 38.1842 53.7657V36.1085C38.1842 36.1085 37.318 23.1821 51.3106 21.1165L67.2354 19.5174V19.1176C67.2354 18.0515 68.1016 17.1853 69.1677 17.1853H72.4326M72.4992 15.9193H69.2343C67.7018 15.9193 66.4358 16.9854 66.1026 18.3846L51.2439 19.8505C43.3815 20.9832 39.9167 25.3809 38.3841 28.9123C36.8516 32.4438 36.9183 35.7753 36.9183 36.2418V53.0328C35.3191 53.7657 31.2546 55.4315 25.6576 56.8307L17.7952 58.8963C17.7952 58.8963 17.7952 58.8963 17.7285 58.8963C17.3287 59.0296 15.5297 59.7625 15.3964 61.3616C15.2632 63.0274 17.1288 63.8936 17.7285 64.2268C18.3282 64.4933 32.7205 70.8899 61.3718 70.8899C90.0232 70.8899 66.1026 70.8899 68.4347 70.7566C71.2332 70.6234 73.9651 70.4235 76.5637 69.957C85.7588 68.4912 91.3558 66.359 93.3547 63.6937C101.617 62.0946 104.615 58.8963 104.749 58.763C104.949 58.4965 105.082 58.23 105.082 57.8968L105.282 43.9709C105.748 28.4459 95.7534 23.5152 95.3537 23.3153C89.69 20.6501 82.9603 18.9177 75.8308 18.318C75.431 16.9188 74.165 15.8527 72.6325 15.8527L72.4992 15.9193Z"
+                                        fill="black" />
+                                    <path
+                                        d="M37.6514 39.1068C37.6514 39.1068 41.1828 27.8462 83.9599 40.5061C83.9599 40.5061 83.76 28.3793 98.219 28.3126"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M83.9601 40.5061L84.3599 63.3605" stroke="black" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M53.7762 33.9096C53.7762 33.9096 55.1089 22.9155 70.6339 19.7172"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M37.7847 53.9655C37.7847 53.9655 33.0539 56.2975 25.5246 58.2298L17.6622 60.2954C17.6622 60.2954 14.3972 61.4281 17.8621 63.1605C17.8621 63.1605 34.5864 70.7565 67.9686 69.5571C70.6338 69.4905 73.2991 69.224 75.8977 68.8242C81.428 67.958 90.3566 66.0257 92.0224 62.6941"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M74.0985 19.7172H66.9023V19.2508C66.9023 18.1847 67.7685 17.3185 68.8346 17.3185H72.0996C73.1657 17.3185 74.0985 18.1847 74.0985 19.3174V19.7172Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M37.7849 54.632V36.3085C37.7849 36.3085 36.9187 23.3821 50.9112 21.3165L68.4351 19.5841C68.4351 19.5841 82.8941 19.3842 94.288 24.7147C94.288 24.7147 103.949 29.2456 103.483 44.1043L103.283 58.0302C103.283 58.0302 98.8189 63.0275 84.3599 63.3607C84.3599 63.3607 48.3126 64.4934 40.5834 60.2957C40.5834 60.2957 37.3184 58.2967 37.7849 54.632Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M61.3722 70.2234C32.8541 70.2234 18.1287 63.6936 17.9954 63.6269C17.4624 63.3604 15.9299 62.6275 15.9965 61.4281C16.0631 60.2288 17.529 59.6957 17.8622 59.5625L25.7912 57.4303C31.9879 55.8311 36.3189 53.9654 37.5849 53.4324V36.175C37.5849 36.1083 36.852 22.6489 51.3109 20.5167L66.7027 18.9842C66.7693 17.6515 67.902 16.5854 69.3013 16.5854H72.5662C73.9655 16.5854 75.0982 17.6515 75.2315 18.9842C82.4942 19.5838 89.3572 21.2496 95.0209 23.9815C95.4207 24.1814 105.082 28.8456 104.616 44.0374L104.416 57.9633C104.416 58.0966 104.416 58.2965 104.216 58.4297C104.083 58.563 101.218 61.6946 92.9553 63.2272C90.8897 66.4921 82.894 68.4244 76.4974 69.4238C73.9655 69.8236 71.2336 70.0902 68.5017 70.2234C66.103 70.29 63.7709 70.3567 61.4388 70.3567L61.3722 70.2234Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M72.4992 17.2518C73.5653 17.2518 74.4982 18.118 74.4982 19.2507V19.6505C79.6954 19.9837 87.2913 21.1164 94.6874 24.5812C94.6874 24.5812 104.349 29.1121 103.882 43.9708L103.683 57.8967C103.683 57.8967 100.817 61.0284 92.4885 62.4943C90.8228 65.8258 81.8276 67.7581 76.3638 68.6243C73.7652 69.0241 71.1 69.2906 68.4347 69.3572C65.9694 69.4239 63.6373 69.4905 61.3718 69.4905C32.6539 69.4905 18.2616 62.9607 18.2616 62.9607C14.7968 61.2283 18.0617 60.0955 18.0617 60.0955L25.9241 58.03C33.4534 56.0977 38.1842 53.7656 38.1842 53.7656V36.1084C38.1842 36.1084 37.318 23.182 51.3106 21.1164L67.2354 19.5172V19.1175C67.2354 18.0514 68.1016 17.1852 69.1677 17.1852H72.4326M72.4992 15.9192H69.2343C67.7018 15.9192 66.4358 16.9853 66.1026 18.3845L51.2439 19.8504C43.3815 20.9831 39.9167 25.3808 38.3841 28.9122C36.8516 32.4437 36.9183 35.7752 36.9183 36.2416V53.0326C35.3191 53.7656 31.2546 55.4314 25.6576 56.8306L17.7952 58.8962C17.7952 58.8962 17.7952 58.8962 17.7285 58.8962C17.3287 59.0294 15.5297 59.7624 15.3964 61.3615C15.2632 63.0273 17.1288 63.8935 17.7285 64.2267C18.3282 64.4932 32.7205 70.8898 61.3718 70.8898C90.0232 70.8898 66.1026 70.8898 68.4347 70.7565C71.2332 70.6232 73.9651 70.4233 76.5637 69.9569C85.7588 68.491 91.3558 66.3589 93.3547 63.6936C101.617 62.0945 104.615 58.8962 104.749 58.7629C104.949 58.4964 105.082 58.2299 105.082 57.8967L105.282 43.9708C105.748 28.4458 95.7534 23.5151 95.3537 23.3152C89.69 20.65 82.9603 18.9176 75.8308 18.3179C75.431 16.9186 74.165 15.8525 72.6325 15.8525L72.4992 15.9192Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M37.6514 39.1068C37.6514 39.1068 41.1828 27.8462 83.9599 40.5061C83.9599 40.5061 83.76 28.3793 98.219 28.3126"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path d="M83.9601 40.5061L84.3599 63.3605" stroke="black" stroke-width="0.7" />
+                                    <path d="M53.7762 33.9096C53.7762 33.9096 55.1089 22.9155 70.6339 19.7172"
+                                        stroke="black" stroke-width="0.7" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_285_1946">
+                                        <rect width="120" height="80" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6">5 Panel Cap</p>
+                    </li>
+
+                    <!-- 6: Bucket Hats -->
+                    <li class="flex flex-col items-center">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-28 h-28 rounded-full bg-white border border-gray-200">
+                            <svg width="133" height="80" viewBox="0 0 133 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_285_1983)">
+                                    <path d="M99.3848 12.4863H101.31" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M95.458 12.4863H97.4634" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M98.4287 11.525V9.59985" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M98.4287 15.3744V13.369" stroke="#000201" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path
+                                        d="M29.1988 31.818C29.376 31.818 29.5196 31.6743 29.5196 31.4971C29.5196 31.3199 29.376 31.1763 29.1988 31.1763C29.0216 31.1763 28.8779 31.3199 28.8779 31.4971C28.8779 31.6743 29.0216 31.818 29.1988 31.818Z"
+                                        fill="black" />
+                                    <path
+                                        d="M23.9883 53.717L28.3198 54.7598C28.3198 54.7598 29.9241 55.2411 32.9722 54.84L42.2771 53.8775C42.2771 53.8775 47.0097 53.5566 50.138 54.5994C50.138 54.5994 53.9081 55.8026 59.9241 58.8507C59.9241 58.8507 65.0578 61.4176 71.9562 59.332C71.9562 59.332 82.384 56.7652 86.876 56.2037C86.876 56.2037 100.191 54.0379 110.218 54.2785C110.218 54.2785 112.625 54.2785 113.106 55.4818"
+                                        stroke="black" stroke-miterlimit="10" />
+                                    <path
+                                        d="M29.1212 42.1669C29.1212 42.1669 29.4421 41.3648 36.18 42.8086C36.18 42.8086 44.1212 44.0118 47.7308 44.1722C47.7308 44.1722 60.8859 44.814 65.3779 45.5359C65.3779 45.5359 73.9608 46.1776 80.1372 45.1348C80.1372 45.1348 88.5597 43.7712 93.0517 43.4503C93.0517 43.4503 100.672 42.7284 103.56 44.3327"
+                                        stroke="#221F20" stroke-miterlimit="10" />
+                                    <path
+                                        d="M38.9025 18.0208C38.9025 18.0208 44.6779 16.978 46.603 17.1384C46.603 17.1384 49.2501 17.6197 51.095 17.5395L53.341 18.101C53.341 18.101 59.5174 18.502 62.6458 18.101C62.6458 18.101 63.849 18.101 69.1431 18.9833C69.1431 18.9833 70.7474 18.8229 72.9934 18.101C72.9934 18.101 77.4854 16.8978 82.8597 16.8175C82.8597 16.8175 89.4372 16.5769 90.3998 16.6571"
+                                        stroke="#221F20" stroke-miterlimit="10" />
+                                    <path
+                                        d="M32.8915 34.0651L45.4851 35.0276C45.4851 35.0276 49.0145 35.5089 50.7792 35.3485C50.7792 35.3485 54.9503 35.5891 57.5171 36.2308C57.5171 36.2308 64.576 37.6747 66.4209 37.5945C66.4209 37.5945 71.0733 37.6747 73.0786 37.1934C73.0786 37.1934 85.1909 36.0704 87.4369 35.9902C87.4369 35.9902 98.346 35.2683 100.271 36.2308"
+                                        stroke="#221F20" stroke-miterlimit="10" />
+                                    <path
+                                        d="M54.707 18.1007C54.707 18.1007 52.9423 18.6622 51.8995 24.1167C51.8995 24.1167 51.8193 26.7638 50.7765 29.5713C50.7765 29.5713 49.092 34.4643 48.6107 38.2344L47.8086 44.2504"
+                                        stroke="#221F20" stroke-miterlimit="10" />
+                                    <path
+                                        d="M28.6423 32.7798C28.6423 32.7798 25.915 37.753 25.8348 39.9188L19.5781 47.9402C19.5781 47.9402 15.3267 50.0258 16.2893 52.8333"
+                                        stroke="black" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path
+                                        d="M113.746 49.386C113.746 49.386 125.858 57.9689 113.746 61.7389C113.746 61.7389 99.9488 64.3058 96.7402 65.8298"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M85.1887 15.053C85.1887 15.053 87.7555 15.4541 90.0817 16.4166L92.5684 17.4594C92.5684 17.4594 93.6914 18.422 94.1726 19.4648C94.3331 19.8658 94.4133 19.9461 94.4133 19.9461L94.2528 19.545C94.2528 19.545 95.2956 20.4273 95.6165 22.192C95.6165 22.192 96.178 24.037 96.6593 24.5985C96.6593 24.5985 100.028 35.3471 100.349 35.8284C100.349 35.8284 103.477 41.5236 103.638 44.3311C103.638 44.3311 106.285 48.2616 110.536 52.6733C110.536 52.6733 114.547 53.3952 113.344 55.4808C113.344 55.4808 110.536 57.4059 106.686 58.2883C106.686 58.2883 94.2528 60.4541 91.4454 61.2562C91.4454 61.2562 88.0764 62.299 86.071 62.9407C86.071 62.9407 80.7769 64.2241 78.6111 64.3043C78.6111 64.3043 71.8732 64.8658 69.948 64.8658C68.0229 64.8658 69.7876 64.8658 69.7074 64.8658C69.7074 64.8658 68.1031 65.0263 65.7769 65.0263C63.4507 65.0263 61.5256 64.8658 59.3598 64.3846C59.3598 64.3846 52.7021 62.6198 50.055 62.299C49.1726 62.2188 48.932 62.1386 48.8518 62.1386L49.9748 62.299C49.9748 62.299 37.3812 60.6947 34.4133 58.4487L24.0657 53.6359C24.0657 53.6359 23.3438 53.7963 22.4614 53.7963C21.5791 53.7963 20.5363 53.7161 19.7341 53.2348C19.7341 53.2348 19.4935 51.9514 21.4988 51.6305L29.1994 42.1653C29.1994 42.1653 31.2047 35.8284 32.9694 34.0637C32.9694 34.0637 33.3705 33.6626 32.9694 32.3792C32.9694 32.3792 35.1352 25.6412 36.8999 23.0744L38.9855 18.0209C38.9855 18.0209 41.5523 15.9354 50.055 15.3739L52.0603 14.9728C52.0603 14.9728 62.9694 15.053 66.2582 15.4541C66.2582 15.4541 68.1031 15.9354 69.948 15.9354C71.793 15.9354 72.1138 15.7749 72.8357 15.3739C72.8357 15.3739 83.0229 15.2134 85.2689 14.9728M85.1887 13.4487C85.1887 13.4487 85.0283 13.4487 84.948 13.4487C83.1833 13.6894 75.4828 13.8498 72.6753 13.8498C72.4347 13.8498 72.1138 13.8498 71.8732 14.0904C71.6325 14.2509 70.9908 14.4915 69.7074 14.4915C68.424 14.4915 66.4186 14.0904 66.4186 14.0904H66.2582C62.8892 13.6894 52.301 13.5289 51.8197 13.5289C51.7395 13.5289 51.6593 13.5289 51.4988 13.5289L49.6539 13.8498C40.9106 14.4113 38.1031 16.5771 37.7823 16.8177C37.5416 16.9781 37.4614 17.2188 37.301 17.4594L35.2956 22.3525C33.4507 25.16 31.3652 31.6573 31.2849 31.8979C31.2047 32.2188 31.2047 32.5396 31.2849 32.9407C31.2849 33.1011 31.3652 33.2616 31.3652 33.3418C29.6807 35.3471 28.1566 39.9193 27.6753 41.4434L20.4561 50.2669C19.2529 50.5878 18.6111 51.3097 18.2903 51.9514C17.8892 52.7535 17.9694 53.4755 17.9694 53.6359C17.9694 54.1172 18.2903 54.5182 18.7716 54.7589C19.6539 55.3204 20.8571 55.561 22.301 55.561C23.7448 55.561 23.3438 55.561 23.6646 55.561L33.4507 60.053C36.8999 62.3792 48.3705 63.9033 49.6539 64.1439C49.6539 64.1439 49.8144 64.1439 49.8946 64.1439C52.5416 64.545 58.7181 66.1493 58.7983 66.1493C60.7234 66.5503 62.9694 66.791 65.5363 66.791C68.1031 66.791 69.0657 66.6305 69.4668 66.6305C69.4668 66.6305 69.547 66.6305 69.6272 66.6305C71.4721 66.6305 77.809 66.1493 78.3705 66.069C80.6967 65.9888 85.5898 64.7856 86.1512 64.6252C86.1512 64.6252 86.1512 64.6252 86.2315 64.6252C88.1566 63.9835 91.5256 62.9407 91.6058 62.9407C94.3331 62.1386 106.526 60.053 106.686 59.9728C110.857 59.0904 113.745 57.0049 113.905 56.9247C114.066 56.7642 114.226 56.6038 114.387 56.4434C114.868 55.561 114.948 54.5985 114.547 53.7161C113.905 52.2723 112.06 51.5503 111.018 51.3097C107.809 47.9407 105.563 44.8124 104.921 43.8498C104.52 40.7215 101.793 35.7482 101.472 35.1867C101.071 34.3846 99.1459 28.3685 97.8625 24.2776C97.8625 24.037 97.702 23.8765 97.5416 23.7161C97.3812 23.4755 97.0603 22.6733 96.8999 22.0316C96.5791 20.2669 95.6967 19.1439 95.2956 18.7428C94.6539 17.5396 93.5309 16.4969 93.4507 16.4166C93.2903 16.3364 93.2101 16.2562 93.0496 16.176L90.563 15.1332C88.1566 14.0102 85.3491 13.6092 85.2689 13.6092C85.2689 13.6092 85.1085 13.6092 85.0283 13.6092L85.1887 13.4487Z"
+                                        fill="black" />
+                                    <path
+                                        d="M113.026 55.9624C112.464 56.2832 109.897 57.9677 106.528 58.6896C106.528 58.6896 94.0952 60.8554 91.2878 61.6575C91.2878 61.6575 87.9188 62.7003 85.9134 63.342C85.9134 63.342 80.6193 64.6255 78.4535 64.7057C78.4535 64.7057 71.1541 65.2672 69.63 65.187C69.63 65.187 64.0952 65.8287 59.3626 64.7859C59.3626 64.7859 52.7049 63.0212 50.0578 62.7003C49.1754 62.6201 48.8546 62.5399 48.8546 62.5399C48.8546 62.5399 48.8546 62.5399 48.9348 62.5399C45.8867 62.1388 36.8225 60.695 34.3359 58.8501L23.9883 54.1174L28.3198 55.1602C28.3198 55.1602 29.9241 55.6415 32.9722 55.2404L40.753 54.4383L42.2771 54.2779C42.2771 54.2779 45.5658 54.0372 48.5337 54.5987C49.0952 54.6789 49.6567 54.8394 50.138 54.9998C50.138 54.9998 53.9081 56.203 59.9241 59.2511C59.9241 59.2511 65.0578 61.818 71.9562 59.7324C71.9562 59.7324 82.384 57.1656 86.876 56.6041C86.876 56.6041 90.1647 56.0426 94.7369 55.5613C99.3091 55.08 105.165 54.5987 110.218 54.6789C110.218 54.6789 112.625 54.6789 113.106 55.8821L113.026 55.9624Z"
+                                        fill="black" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_285_1983">
+                                        <rect width="133" height="80" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6">Bucket Hats</p>
+                    </li>
+
+                    <!-- 7: Trucker Caps -->
+                    <li class="flex flex-col items-center">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-28 h-28 rounded-full bg-white border border-gray-200">
+                            <svg width="125" height="80" viewBox="0 0 125 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_285_2009)">
+                                    <path d="M92.9915 15.0073H94.7406" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M89.563 15.0072H91.3122" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M92.1516 14.1675V12.4883" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M92.1516 17.526V15.7769" stroke="black" stroke-width="0.7"
+                                        stroke-miterlimit="10" stroke-linecap="round" />
+                                    <path d="M71.3005 76.6476C71.3005 76.6476 80.6761 77.2773 87.6028 74.1987"
+                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M35.8277 33.3385C35.9823 33.3385 36.1076 33.2132 36.1076 33.0587C36.1076 32.9041 35.9823 32.7788 35.8277 32.7788C35.6732 32.7788 35.5479 32.9041 35.5479 33.0587C35.5479 33.2132 35.6732 33.3385 35.8277 33.3385Z"
+                                        fill="black" />
+                                    <path d="M35.8973 34.0381V52.0195C35.8973 52.0195 24.2129 56.5673 20.8545 56.6373"
+                                        stroke="black" stroke-width="0.7" stroke-miterlimit="10"
+                                        stroke-linecap="round" />
+                                    <path
+                                        d="M41.1456 55.3079C41.1456 55.3079 36.3179 57.6867 28.6216 59.5758L20.6454 61.6748C20.6454 61.6748 17.287 62.8642 20.7853 64.5434C20.7853 64.5434 37.8571 72.2398 71.8609 71.0503C74.5896 70.9804 77.2483 70.7005 79.977 70.2807C85.5743 69.3711 94.74 67.4121 96.4192 64.0537"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M78.158 20.1849V20.5347H70.8115V20.1149C70.8115 19.0654 71.6511 18.1559 72.7706 18.1559H76.129C77.2484 18.1559 78.158 19.0655 78.158 20.1849Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M108.103 45.3027L107.893 59.4359C107.893 59.4359 103.345 64.5435 88.6525 64.8933C88.6525 64.8933 88.6525 64.8933 88.4426 64.8933C87.7429 61.9547 88.3726 37.1166 88.3726 37.1166C88.3726 24.3127 80.2565 21.2342 75.6387 20.6045H77.108C82.4254 20.9543 91.2412 22.1438 98.7276 25.6421C98.7276 25.6421 108.523 30.2599 108.103 45.3727V45.3027Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M88.4428 64.8234C88.4428 64.8234 88.4428 64.8234 88.3029 64.8234C84.8046 64.8934 51.5005 65.733 44.0141 61.6749C44.0141 61.6749 40.7256 59.6459 41.1454 55.9377V37.3265C41.1454 37.3265 40.3058 24.1728 54.579 22.0738L70.8113 20.4646H75.569C80.1868 21.1643 88.2329 24.1728 88.3029 36.9767C88.3029 36.9767 87.7432 61.8148 88.3729 64.7534L88.4428 64.8234Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M76.1288 17.6661C77.2483 17.6661 78.1579 18.5756 78.1579 19.6951V20.0449C83.4753 20.3948 91.2416 21.5842 98.7281 25.0825C98.7281 25.0825 108.523 29.7003 108.104 44.8131L107.894 58.9464C107.894 58.9464 105.025 62.1648 96.4891 63.6341C94.74 66.9925 85.6443 68.9516 80.047 69.8611C77.3882 70.2809 74.6595 70.5608 71.9308 70.6308C69.482 70.7007 67.0332 70.7707 64.7943 70.7707C35.5482 70.7707 20.8553 64.1239 20.8553 64.1239C17.3569 62.3747 20.7153 61.2553 20.7153 61.2553L28.6915 59.1563C36.3878 57.1972 41.1456 54.8883 41.2155 54.8883V36.9768C41.2155 36.9768 40.3759 23.8231 54.6491 21.7241L70.8814 20.1149V19.6951C70.8814 18.6456 71.721 17.736 72.8404 17.736H76.1988M76.1288 16.2667H72.7704C71.2312 16.2667 69.9018 17.3162 69.552 18.7855L54.4392 20.2548C46.463 21.4443 42.8947 25.9221 41.2855 29.4904C39.6763 33.1287 39.8162 36.4171 39.8162 36.9069V53.9088C38.207 54.6084 34.0789 56.2876 28.3417 57.7569L20.2955 59.8559C20.2955 59.8559 20.2955 59.8559 20.2256 59.8559C19.8757 59.9959 17.9866 60.7655 17.8467 62.3747C17.7767 64.1239 19.5959 65.0334 20.2256 65.3133C20.8553 65.5932 35.4783 72.1001 64.7243 72.1001C93.9703 72.1001 69.552 72.1001 71.9308 71.9601C74.7995 71.8902 77.5981 71.6103 80.1869 71.1905C89.5624 69.6512 95.2997 67.5522 97.2587 64.8235C105.655 63.2143 108.733 59.9259 108.873 59.786C109.083 59.5061 109.223 59.2262 109.223 58.8764L109.433 44.7431C109.923 28.9307 99.7076 23.9631 99.2878 23.7532C93.5505 21.0944 86.6938 19.3453 79.4173 18.7156C78.9975 17.2463 77.6681 16.1968 76.1288 16.1968V16.2667Z"
+                                        fill="black" />
+                                    <path
+                                        d="M77.1085 20.5345H70.8115L72.4208 20.3945C72.4208 20.3945 73.1204 20.3945 74.3798 20.3945C75.0795 20.3945 75.9891 20.3945 77.0385 20.5345H77.1085Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M74.3787 20.3945C74.7285 20.3945 75.1483 20.3945 75.5681 20.5345H71.7899C72.1397 20.3945 72.3496 20.3945 72.3496 20.3945C72.3496 20.3945 73.1193 20.3945 74.3087 20.3945H74.3787Z"
+                                        stroke="black" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M41.1456 55.3079C41.1456 55.3079 36.3179 57.6867 28.6216 59.5758L20.6454 61.6748C20.6454 61.6748 17.287 62.8642 20.7853 64.5434C20.7853 64.5434 37.8571 72.2398 71.8609 71.0503C74.5896 70.9804 77.2483 70.7005 79.977 70.2807C85.5743 69.3711 94.74 67.4121 96.4192 64.0537"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M78.158 20.1849V20.5347H70.8115V20.1149C70.8115 19.0654 71.6511 18.1559 72.7706 18.1559H76.129C77.2484 18.1559 78.158 19.0655 78.158 20.1849Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M108.103 45.3027L107.893 59.4359C107.893 59.4359 103.345 64.5435 88.6525 64.8933C88.6525 64.8933 88.6525 64.8933 88.4426 64.8933C87.7429 61.9547 88.3726 37.1166 88.3726 37.1166C88.3726 24.3127 80.2565 21.2342 75.6387 20.6045H77.108C82.4254 20.9543 91.2412 22.1438 98.7276 25.6421C98.7276 25.6421 108.523 30.2599 108.103 45.3727V45.3027Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M88.4428 64.8234C88.4428 64.8234 88.4428 64.8234 88.3029 64.8234C84.8046 64.8934 51.5005 65.733 44.0141 61.6749C44.0141 61.6749 40.7256 59.6459 41.1454 55.9377V37.3265C41.1454 37.3265 40.3058 24.1728 54.579 22.0738L70.8113 20.4646H75.569C80.1868 21.1643 88.2329 24.1728 88.3029 36.9767C88.3029 36.9767 87.7432 61.8148 88.3729 64.7534L88.4428 64.8234Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M64.7237 71.5402C35.6876 71.5402 20.6448 64.8934 20.5048 64.8234C19.9451 64.5435 18.4059 63.7739 18.4758 62.5145C18.5458 61.3251 20.0851 60.6954 20.3649 60.6254L28.4111 58.5264C34.778 56.9172 39.116 55.0281 40.3754 54.4684V36.9767C40.3754 36.9067 39.6057 23.1933 54.3687 21.0943L70.0412 19.555C70.1112 18.1557 71.3006 17.1062 72.6999 17.1062H76.0583C77.4576 17.1062 78.6471 18.1557 78.787 19.555C86.2035 20.1148 93.2001 21.8639 98.9374 24.5926C99.3572 24.8025 109.153 29.5603 108.733 44.9529L108.523 59.0862C108.523 59.2261 108.523 59.436 108.313 59.5759C108.173 59.7158 105.234 62.8643 96.8384 64.4036C94.7394 67.692 86.6233 69.6511 80.0464 70.7006C77.4576 71.1204 74.7289 71.4003 71.8603 71.4702C69.4115 71.5402 67.0326 71.6102 64.6538 71.6102L64.7237 71.5402Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M76.1288 17.6661C77.2483 17.6661 78.1579 18.5756 78.1579 19.6951V20.0449C83.4753 20.3948 91.2416 21.5842 98.728 25.0825C98.728 25.0825 108.523 29.7003 108.104 44.8131L107.894 58.9464C107.894 58.9464 105.025 62.1648 96.4891 63.6341C94.7399 66.9925 85.6443 68.9516 80.047 69.8611C77.3882 70.2809 74.6595 70.5608 71.9308 70.6308C69.482 70.7007 67.0332 70.7707 64.7943 70.7707C35.5482 70.7707 20.8553 64.1239 20.8553 64.1239C17.3569 62.3747 20.7153 61.2553 20.7153 61.2553L28.6915 59.1563C36.3878 57.1972 41.1456 54.8883 41.2155 54.8883V36.9768C41.2155 36.9768 40.3759 23.8231 54.6491 21.7241L70.8813 20.1149V19.6951C70.8813 18.6456 71.721 17.736 72.8404 17.736H76.1988M76.1288 16.2667H72.7704C71.2312 16.2667 69.9018 17.3162 69.552 18.7855L54.4392 20.2548C46.463 21.4443 42.8947 25.9221 41.2855 29.4904C39.6763 33.1287 39.8162 36.4171 39.8162 36.9069V53.9088C38.207 54.6084 34.0789 56.2876 28.3417 57.7569L20.2955 59.8559C20.2955 59.8559 20.2955 59.8559 20.2256 59.8559C19.8757 59.9959 17.9866 60.7655 17.8467 62.3747C17.7767 64.1239 19.5959 65.0334 20.2256 65.3133C20.8553 65.5932 35.4783 72.1001 64.7243 72.1001C93.9703 72.1001 69.552 72.1001 71.9308 71.9601C74.7995 71.8902 77.5981 71.6103 80.1869 71.1905C89.5624 69.6512 95.2997 67.5522 97.2587 64.8235C105.655 63.2143 108.733 59.9259 108.873 59.786C109.083 59.5061 109.223 59.2262 109.223 58.8764L109.433 44.7431C109.923 28.9307 99.7076 23.9631 99.2878 23.7532C93.5505 21.0944 86.6938 19.3453 79.4173 18.7156C78.9975 17.2463 77.6681 16.1968 76.1288 16.1968V16.2667Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M77.1085 20.5345H70.8115L72.4208 20.3945C72.4208 20.3945 73.1204 20.3945 74.3798 20.3945C75.0795 20.3945 75.9891 20.3945 77.0385 20.5345H77.1085Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M74.3787 20.3945C74.7285 20.3945 75.1483 20.3945 75.5681 20.5345H71.7899C72.1397 20.3945 72.3496 20.3945 72.3496 20.3945C72.3496 20.3945 73.1193 20.3945 74.3087 20.3945H74.3787Z"
+                                        stroke="black" stroke-width="0.7" />
+                                    <path
+                                        d="M88.4427 65.0334L88.3027 64.8934C88.3027 64.8934 88.3727 64.8934 88.4427 64.8934V65.0334Z"
+                                        fill="white" stroke="#000201" stroke-width="1.3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M107.333 59.3658C107.333 59.3658 107.403 59.2958 107.473 59.2958L107.683 45.3724C107.683 43.3434 107.613 41.5243 107.333 39.8451V59.4357V59.3658Z"
+                                        stroke="black" stroke-miterlimit="10" />
+                                    <path
+                                        d="M104.534 61.1151C104.954 60.9052 105.304 60.6953 105.584 60.5554V34.0381C105.234 33.3384 104.884 32.6387 104.534 32.009V61.1151Z"
+                                        fill="black" />
+                                    <path
+                                        d="M101.805 62.3044C102.225 62.1644 102.645 62.0245 103.064 61.8146V29.8399C102.645 29.3501 102.225 28.8603 101.805 28.5105V62.3044Z"
+                                        fill="black" />
+                                    <path
+                                        d="M99.0764 63.0743C99.5662 62.9343 100.056 62.7944 100.476 62.6545V27.2514C99.916 26.7616 99.4262 26.4818 99.0764 26.2719V63.0743Z"
+                                        fill="black" />
+                                    <path
+                                        d="M96.3489 63.7039C96.9086 63.634 97.3984 63.494 97.8881 63.4241V25.7821C97.3984 25.5722 96.8386 25.2923 96.3489 25.0824V63.7039Z"
+                                        fill="black" />
+                                    <path
+                                        d="M80.7461 21.374V21.7239C81.026 21.8638 81.3058 22.0037 81.5857 22.2136V21.514C81.3058 21.514 81.026 21.514 80.7461 21.444V21.374Z"
+                                        fill="black" />
+                                    <path
+                                        d="M83.3352 21.6542V23.3334C83.685 23.6132 84.0349 23.9631 84.3847 24.3129V21.8641C84.0349 21.8641 83.685 21.7241 83.3352 21.7241V21.6542Z"
+                                        fill="black" />
+                                    <path
+                                        d="M85.8539 22.1437V26.2017C86.2737 26.8314 86.6935 27.6011 87.1133 28.4407V22.4235C86.6935 22.3536 86.2737 22.2836 85.8539 22.2136V22.1437Z"
+                                        fill="black" />
+                                    <path
+                                        d="M89.8409 64.3336V22.9834C89.3511 22.8434 88.9313 22.7735 88.4415 22.6335V33.0586C88.6514 34.318 88.7914 35.6473 88.7914 37.1166C88.7914 37.3965 88.2316 60.2756 88.7914 64.4036C89.1412 64.4036 89.491 64.4036 89.8409 64.4036V64.3336Z"
+                                        fill="black" />
+                                    <path
+                                        d="M91.0315 64.2637C91.5912 64.2637 92.081 64.1938 92.5708 64.1238V23.6831C92.011 23.5432 91.5213 23.3333 91.0315 23.1934V64.1938V64.2637Z"
+                                        fill="black" />
+                                    <path
+                                        d="M93.5502 64.0537C94.1799 64.0537 94.7396 63.9138 95.2993 63.8438V24.6625C94.7396 24.4526 94.1099 24.2427 93.5502 24.0328V64.0537Z"
+                                        fill="black" />
+                                    <path
+                                        d="M108.522 45.3027C109.012 30.05 99.0069 25.2223 98.867 25.1524C91.5205 21.724 82.9846 20.4646 77.0374 20.0448H75.4982C75.2883 20.0448 75.0784 20.2547 75.0784 20.4646C75.0784 20.6745 75.2183 20.8844 75.4982 20.9544C80.116 21.654 87.8123 24.5926 87.8123 37.0467C87.8123 38.0962 87.2526 61.9548 87.9522 64.8934C87.9522 65.1033 88.1621 65.2432 88.372 65.2432C88.442 65.2432 88.512 65.2432 88.512 65.2432C103.205 64.8934 107.893 59.8558 108.103 59.6459C108.173 59.5759 108.243 59.436 108.243 59.366L108.452 45.2328L108.522 45.3027ZM88.7918 37.1166C88.7918 35.6473 88.6519 34.318 88.442 33.0586C88.1621 31.2395 87.6724 29.7002 87.1126 28.3708C86.7628 27.5312 86.343 26.8316 85.8532 26.1319C85.3635 25.4322 84.8737 24.8025 84.314 24.3128C83.9641 23.9629 83.6143 23.6831 83.2645 23.3332C82.7047 22.9134 82.145 22.4936 81.5853 22.1438C81.3054 22.0039 81.0255 21.794 80.7457 21.654C80.4658 21.5141 80.116 21.3742 79.8361 21.2342C80.116 21.2342 80.4658 21.3042 80.7457 21.3742C81.0255 21.3742 81.3054 21.3742 81.5853 21.4441C82.145 21.4441 82.7047 21.5841 83.2645 21.654C83.6143 21.654 83.9641 21.724 84.314 21.794C84.8037 21.8639 85.2935 22.0039 85.8532 22.0738C86.273 22.1438 86.6928 22.2138 87.1126 22.2837C87.5324 22.3537 88.0222 22.4936 88.442 22.5636C88.9318 22.7035 89.3516 22.7735 89.8413 22.9134C90.2611 22.9834 90.611 23.1233 91.0308 23.1933C91.5905 23.3332 92.0802 23.4732 92.57 23.6831C92.9198 23.753 93.1997 23.893 93.5495 23.9629C94.1093 24.1728 94.739 24.3827 95.2987 24.5926C95.6485 24.7326 95.9984 24.8025 96.2782 24.9425C96.838 25.1524 97.3277 25.3623 97.8175 25.6421C98.0274 25.7121 98.2373 25.852 98.4472 25.922C98.4472 25.922 98.6571 25.992 99.0069 26.2019C99.3568 26.4118 99.8465 26.7616 100.406 27.1814C100.826 27.5312 101.246 27.8811 101.736 28.3708C102.155 28.7906 102.575 29.2104 102.995 29.7002C103.485 30.3299 104.045 31.0296 104.534 31.8692C104.884 32.4989 105.234 33.1286 105.584 33.8982C106.283 35.5074 106.913 37.3965 107.263 39.6354C107.543 41.3146 107.683 43.1338 107.613 45.1628L107.403 59.1561C107.403 59.1561 107.403 59.1561 107.263 59.2261C106.983 59.436 106.423 59.9257 105.584 60.4155C105.304 60.6254 104.954 60.7653 104.534 60.9752C104.115 61.1851 103.555 61.465 102.995 61.6749C102.645 61.8148 102.225 61.9548 101.736 62.1647C101.316 62.3046 100.896 62.4445 100.406 62.5845C99.9865 62.7244 99.4967 62.8643 99.0069 63.0043C98.6571 63.0742 98.2373 63.2142 97.8175 63.2841C97.3277 63.4241 96.768 63.494 96.2782 63.564C95.9284 63.564 95.6485 63.7039 95.2987 63.7039C94.739 63.7739 94.1792 63.8439 93.5495 63.9138C93.1997 63.9138 92.9198 63.9838 92.57 63.9838C92.0802 63.9838 91.5205 64.0538 91.0308 64.1237C90.6809 64.1237 90.2611 64.1237 89.8413 64.1237C89.4915 64.1237 89.1417 64.1237 88.7918 64.1237C88.2321 59.9957 88.7918 37.0467 88.7918 36.8368V37.1166Z"
+                                        fill="black" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_285_2009">
+                                        <rect width="125" height="80" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6">Trucker Caps</p>
+                    </li>
+
+                    <!-- 8: Dad Caps -->
+                    <li class="flex flex-col items-center">
+                        <div
+                            class="flex items-center justify-center headwear-icon w-28 h-28 rounded-full bg-white border border-gray-200">
+                            <svg width="95" height="80" viewBox="0 0 95 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M72.0151 8.44458H73.6433" stroke="#000201" stroke-width="0.7"
+                                    stroke-miterlimit="10" stroke-linecap="round" />
+                                <path d="M68.6909 8.4447H70.3869" stroke="#000201" stroke-width="0.7"
+                                    stroke-miterlimit="10" stroke-linecap="round" />
+                                <path d="M71.2009 7.62977V6" stroke="#000201" stroke-width="0.7" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path d="M71.2009 10.8892V9.2594" stroke="#000201" stroke-width="0.7"
+                                    stroke-miterlimit="10" stroke-linecap="round" />
+                                <path
+                                    d="M19.4398 56.3188C8.58543 71.1904 7.5 64.6714 7.5 64.6714C7.5 62.9058 8.11056 61.4797 8.99247 60.3932C9.19599 60.1216 9.46735 59.85 9.73871 59.5783C12.2488 57.2016 16.0478 56.5904 16.0478 56.5904C17.2011 56.3188 18.3543 56.2509 19.5076 56.3188H19.4398Z"
+                                    stroke="black" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M87.1433 51.5652L76.0176 50.6145L67.6055 49.8675C61.4321 49.5959 45.4898 45.861 45.4898 45.861L34.6354 44.2312C27.0374 43.4163 21.0675 47.6266 21.0675 47.6266C21.1353 30.514 25.8163 23.7233 25.8163 23.7233C34.1605 9.46286 57.2939 10.9568 57.2939 10.9568C92.8418 17.0005 87.0076 51.5652 87.0076 51.5652H87.1433Z"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M75.3394 50.954C75.3394 50.954 68.6232 61.8871 59.7362 66.5726C59.7362 66.5726 52.1382 70.1038 43.5226 66.7764C43.5226 66.7764 35.8567 63.1094 33.6858 61.4796C33.6858 61.4796 26.6984 56.5224 19.3717 56.3187C18.2184 56.3187 17.0651 56.3187 15.9119 56.5903C15.9119 56.5903 12.1128 57.2015 9.60278 59.5782L20.3214 47.8982C20.3214 47.8982 26.2913 43.688 33.8894 44.5029L44.7437 46.1326C44.7437 46.1326 60.686 49.8675 66.8594 50.1392L75.2715 50.8861L75.3394 50.954Z"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M56.4801 11.2285C56.4801 11.2285 44.7439 10.3457 39.4524 19.3094"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M56.6837 11.2285C56.6837 11.2285 60.0757 13.3336 62.9928 17.9513C65.028 21.2108 66.1813 24.8778 66.5205 28.6127C66.9275 32.8908 67.5381 41.5829 66.9953 50.1392"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M56.9553 11.2285H49.5608V10.3457C49.5608 9.46292 50.307 8.71594 51.1889 8.71594H55.3272C56.2091 8.71594 56.9553 9.46292 56.9553 10.3457V11.1606V11.2285Z"
+                                    stroke="#221F20" stroke-width="1.1" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M76.018 50.6148L87.1437 51.5655C87.1437 51.5655 92.9779 16.9329 57.4299 10.9571C57.4299 10.9571 57.2943 10.9571 57.0229 10.9571V10.4138C57.0229 9.53103 56.2767 8.78406 55.3948 8.78406H51.2565C50.3746 8.78406 49.6284 9.53103 49.6284 10.4138V11.2966H49.8998C42.3696 12.1115 31.2439 14.8278 25.9524 23.8594C25.9524 23.8594 21.2714 30.5822 21.2036 47.6268C20.7287 47.8985 20.4574 48.1022 20.4574 48.1022L9.73871 59.7822C9.46735 60.0538 9.26383 60.2575 8.99247 60.5292C8.11056 61.6157 7.5 63.0417 7.5 64.8752C7.5 64.8752 8.51759 71.3264 19.4398 56.5227C26.7664 56.7264 33.7539 61.6836 33.7539 61.6836C35.9248 63.3134 43.5907 66.9803 43.5907 66.9803C52.2063 70.3078 59.8043 66.7766 59.8043 66.7766C68.6235 62.091 75.4074 51.158 75.4074 51.158L76.1537 50.8864"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M21.5431 19.9888C21.5431 19.9888 16.7943 35.4716 17.9476 44.7748L9.19629 54.825"
+                                    stroke="black" stroke-width="0.7" stroke-miterlimit="10" stroke-linecap="round" />
+                                <path d="M41.4199 70.9869C41.4199 70.9869 49.425 75.4688 57.3622 72.413" stroke="black"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M21.8145 19.3099C21.9643 19.3099 22.0858 19.1882 22.0858 19.0382C22.0858 18.8882 21.9643 18.7666 21.8145 18.7666C21.6646 18.7666 21.5431 18.8882 21.5431 19.0382C21.5431 19.1882 21.6646 19.3099 21.8145 19.3099Z"
+                                    fill="#050505" />
+                            </svg>
+
+                        </div>
+                        <p class="mt-3 text-sm font-semibold leading-6">Dad Caps</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Section: Headwear categories row End-->
+
+
+        <!-- Todays Best Deals Section Start -->
+        <section class="max-w-[1737px] mx-auto py-12 md:py-16 px-4 sm:px-6 lg:px-8 no-desktop-xpadding">
+            <!-- Header -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 md:mb-10 gap-3">
+                <h2 class="w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900"
+                    style="font-weight: 800;">Todays Best Deal
+                </h2>
+                <a href="#"
+                    class="w-full flex justify-start sm:justify-end text-gray-700 hover:text-gray-900 transition-colors text-sm sm:text-base font-medium items-center group mt-1 sm:mt-0">
+                    <span class="mr-2">SEE ALL PRODUCT</span>
+                    <div class="transition-transform duration-300 group-hover:translate-x-1 text-base">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.0208 3.41421L1.41421 12.0208L0 10.6066L8.60659 2H1.02082V0H12.0208V11H10.0208V3.41421Z"
+                                fill="#111827"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Product Grid/Carousel Container -->
+            <div class=" mx-auto relative">
+                <!-- Navigation Arrows (for visual matching, hidden on mobile) -->
+                <button
+                    class="absolute -left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-xl z-10 transition-shadow hover:shadow-2xl hidden lg:block border border-gray-100">
+                    <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.36359 10.0001L12 2.22222L9.81817 0L0 10.0001L9.81817 20L12 17.7778L4.36359 10.0001Z"
+                            fill="#111827" />
+                    </svg>
+
+                </button>
+                <button
+                    class="absolute -right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-xl z-10 transition-shadow hover:shadow-2xl hidden lg:block border border-gray-100">
+                    <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.63641 10.0001L0 2.22222L2.18183 0L12 10.0001L2.18183 20L0 17.7778L7.63641 10.0001Z"
+                            fill="#111827" />
+                    </svg>
+
+                </button>
+                <!-- Product Cards Grid: 1 column mobile, 2 columns tablet, 3 columns desktop -->
+                <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+
+                    <!-- CARD 1: Denim Blue Cap (Matching the visual representation) -->
+                    <div class="group bg-white  overflow-visible shadow-md transition-shadow duration-300">
+                        <div class="relative overflow-hidden">
+                            <!-- 'ON SALE' Badge -->
+                            <div
+                                class="absolute top-3 left-3 bg-black text-white px-2 py-1 text-xs font-bold rounded-full z-10">
+                                ON SALE</div>
+                            <!-- Product Image (Placeholder used as external images are not supported) -->
+                            <img src="assets/image/best-deal/Rectangle 19334.png" alt="Denim baseball cap"
+                                class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
+                            <!-- Hover Overlay and Button -->
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                                <button
+                                    class="bg-white text-gray-900 px-6 py-3 flex items-center space-x-2 rounded-2xl hover:bg-gray-100 transition-colors text-base font-semibold shadow-2xl transform group-hover:scale-105 duration-300">
+                                    <i class="fas fa-shopping-cart text-lg"></i>
+                                    <span>ADD TO CART</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product Details -->
+                        <div class="p-4 pt-3 w-[90%] bg-white rounded-md shadow-sm"
+                            style="margin-top: -84px; position: relative; z-index: 10;">
+                            <h3 class="text-sm sm:text-base font-semibold text-strong mb-1 truncate">New York Yankees
+                                Essential Black Cap</h3>
+                            <div class="flex items-baseline space-x-2">
+                                <p class="text-lg font-bold text-strong">৳5000</p>
+                                <p class="text-sm text-gray-500 line-through">৳6500</p>
+                                <!-- Discount Badge (Styled for high contrast) -->
+                                <span class="bg-gray-800 text-teal-400 text-xs font-bold px-2 py-1 rounded">
+                                    <i class="fas fa-tag fa-xs mr-1"></i>20% OFF
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: Black Washed Cap -->
+                    <div class="group bg-white  overflow-visible shadow-md transition-shadow duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/image/best-deal/Rectangle 19337.png" alt="Washed black baseball cap"
+                                class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                                <button
+                                    class="bg-white text-gray-900 px-6 py-3 flex items-center space-x-2 rounded-2xl hover:bg-gray-100 transition-colors text-base font-semibold shadow-2xl transform group-hover:scale-105 duration-300">
+                                    <i class="fas fa-shopping-cart text-lg"></i>
+                                    <span>ADD TO CART</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-3 w-[90%] bg-white rounded-md shadow-sm"
+                            style="margin-top: -84px; position: relative; z-index: 10;">
+                            <h3 class="text-sm sm:text-base font-semibold text-strong mb-1 truncate">Vintage Washed
+                                Black Cap</h3>
+                            <div class="flex items-baseline space-x-2">
+                                <p class="text-lg font-bold text-strong">৳4200</p>
+                                <p class="text-sm text-gray-500 line-through">৳5000</p>
+                                <span class="bg-gray-800 text-teal-400 text-xs font-bold px-2 py-1 rounded">
+                                    <i class="fas fa-tag fa-xs mr-1"></i>20% OFF
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: Olive Green Cap with Text -->
+                    <div class="group bg-white  overflow-visible shadow-md transition-shadow duration-300">
+                        <div class="relative overflow-hidden">
+                            <img src="assets/image/best-deal/Rectangle 19338.png"
+                                alt="Olive green baseball cap with embroidered text"
+                                class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                                <button
+                                    class="bg-white text-gray-900 px-6 py-3 flex items-center space-x-2 rounded-2xl hover:bg-gray-100 transition-colors text-base font-semibold shadow-2xl transform group-hover:scale-105 duration-300">
+                                    <i class="fas fa-shopping-cart text-lg"></i>
+                                    <span>ADD TO CART</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-3 w-[90%] bg-white rounded-md shadow-sm"
+                            style="margin-top: -84px; position: relative; z-index: 10;">
+                            <h3 class="text-sm sm:text-base font-semibold text-strong mb-1 truncate">Be The Person Cap
+                                (Olive)</h3>
+                            <div class="flex items-baseline space-x-2">
+                                <p class="text-lg font-bold text-strong">৳5000</p>
+                                <p class="text-sm text-gray-500 line-through">৳6500</p>
+                                <span class="bg-gray-800 text-teal-400 text-xs font-bold px-2 py-1 rounded">
+                                    <i class="fas fa-tag fa-xs mr-1"></i>20% OFF
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Todays Best Deals Section End -->
+
+        <!-- Hero-2 Section -->
+        <section class="w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12" style="align-items: center;">
+                <!-- Image Side (larger on desktop) -->
+                <div
+                    class="relative h-[420px] sm:h-[520px] md:h-[600px] lg:h-[760px] xl:h-[840px] 2xl:h-[900px] lg:col-span-6">
+                    <img src="assets/image/hero/hero-2.png" alt="Person sitting with burgundy cap"
+                        class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+
+                <!-- Content Side -->
+                <div class="bg-[#0B121D] h-full lg:h-[80%] flex items-center justify-center lg:col-span-6">
+                    <div class="px-6 sm:px-10 lg:px-12 xl:px-16 w-full max-w-[760px] py-12 lg:py-0 text-white">
+                        <h1
+                            class="font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight text-white">
+                            Your Trusted Building<br class="hidden md:block" /> Material Supplier
+                        </h1>
+
+                        <p class="mt-6 md:mt-8 text-base leading-relaxed max-w-[560px] text-white/90">
+                            These shoes offer incredible comfort and style. These shoes
+                            offer incredible comfort and style. Perfect for every occasion.
+                            These shoes offer incredible comfort and style.
+                        </p>
+
+                        <div class="mt-8 md:mt-10">
+                            <a href="#"
+                                class="inline-flex items-center justify-center bg-white text-black font-medium tracking-wide text-sm sm:text-base px-8 sm:px-10 py-3 sm:py-4 hover:bg-neutral-200 transition-colors">
+                                SHOP NOW
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Just For You Section Start Form Here -->
-        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8 no-desktop-xpadding">
 
             <!-- Section Header -->
             <div class="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 md:mb-6">Just For You</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 md:mb-6">Just For You
+                </h2>
                 <nav
                     class="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 sm:gap-x-5 text-xs sm:text-sm tracking-widest text-gray-500">
                     <a href="#" class="hover:text-gray-900 transition-colors duration-200">BASEBALL CAPS</a>
@@ -536,7 +1388,8 @@
             </div>
 
             <!-- Product Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-8 sm:gap-x-6 sm:gap-y-10 md:gap-x-7 md:gap-y-12">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-8 sm:gap-x-6 sm:gap-y-10 md:gap-x-7 md:gap-y-12">
 
                 <!-- Product 1 -->
                 <div class="group">
@@ -545,7 +1398,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -567,7 +1421,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -586,7 +1441,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -611,7 +1467,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -636,7 +1493,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -661,7 +1519,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -683,7 +1542,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -702,7 +1562,8 @@
                             class="w-full h-auto object-cover aspect-square transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
+                            <button
+                                class="bg-white text-black px-5 py-2.5 sm:px-6 sm:py-3 flex items-center space-x-2 rounded-md hover:bg-gray-100 transition-colors text-sm sm:text-base font-semibold shadow-lg">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>ADD TO CART</span>
                             </button>
@@ -735,15 +1596,17 @@
 
         <!-- News Letter Section Start Form Here -->
         <!-- Newsletter Section -->
-        <section class="w-full bg-[#0e1523] text-white">
+        <section class="w-full bg-[#0e1523] text-white no-desktop-xpadding">
             <div class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 sm:gap-10 md:gap-12 lg:gap-16">
                     <!-- Left: Heading + Copy -->
                     <div class="text-center lg:text-left">
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        <h2
+                            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                             Subscribe Our Newsletter
                         </h2>
-                        <p class="mt-4 sm:mt-5 md:mt-6 text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0">
+                        <p
+                            class="mt-4 sm:mt-5 md:mt-6 text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0">
                             Subscribe to our newsletter to receive early discount, news,
                             sales &amp; promo information.
                         </p>
@@ -769,10 +1632,13 @@
                             <!-- Checkbox -->
                             <div class="mt-5 sm:mt-5 md:mt-6 flex items-start gap-3">
                                 <input id="agree" type="checkbox"
-                                    class="h-5 w-5 mt-0.5 accent-white border-2 border-white/50 rounded cursor-pointer flex-shrink-0" required />
-                                <label for="agree" class="text-sm sm:text-sm md:text-base text-slate-300 leading-relaxed cursor-pointer">
+                                    class="h-5 w-5 mt-0.5 accent-white border-2 border-white/50 rounded cursor-pointer flex-shrink-0"
+                                    required />
+                                <label for="agree"
+                                    class="text-sm sm:text-sm md:text-base text-slate-300 leading-relaxed cursor-pointer">
                                     I agree to the
-                                    <a href="#" class="text-white font-medium underline underline-offset-2 decoration-white/60 hover:decoration-white transition-all">
+                                    <a href="#"
+                                        class="text-white font-medium underline underline-offset-2 decoration-white/60 hover:decoration-white transition-all">
                                         Privacy Policy
                                     </a>
                                 </label>
@@ -786,14 +1652,16 @@
 
 
         <!-- Trending Now Section Start Form Here -->
-        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8 no-desktop-xpadding">
             <!-- Section Header -->
-            <div class="mb-8 sm:mb-10 md:mb-12 lg:mb-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+            <div
+                class="mb-8 sm:mb-10 md:mb-12 lg:mb-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Trending Now</h2>
                 <a href="#"
                     class="text-xs sm:text-sm font-extrabold tracking-wide uppercase text-gray-500 hover:text-gray-900 transition-colors duration-200 inline-flex items-center gap-1.5 group">
                     See all product
-                    <span aria-hidden="true" class="text-sm transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200">↗</span>
+                    <span aria-hidden="true"
+                        class="text-sm transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200">↗</span>
                 </a>
             </div>
 
@@ -1032,9 +1900,9 @@
         <!-- Trending Now Section End Form Here -->
 
         <!-- Service Highlights Section -->
-        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="w-full max-w-[1737px] mx-auto px-4 sm:px-6 lg:px-8 no-desktop-xpadding">
             <div
-                class="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12 lg:py-14 shadow-md border border-gray-100">
+                class="bg-gradient-to-br from-gray-50 to-white  sm:rounded-2xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12 lg:py-14 shadow-md border border-gray-100">
 
                 <!-- Cards Container -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
