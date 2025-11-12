@@ -24,7 +24,7 @@ A modern, responsive cap shop e-commerce website built with HTML and Tailwind CS
 
 CapShop is a fully responsive e-commerce landing page designed for selling caps and headwear. The website features a modern design with smooth animations, an intuitive navigation system, and optimized product showcases including trending items, best deals, and personalized recommendations.
 
-**Live Demo:** [View Demo](https://github.com/almumeetu/CapShop---Tailwind-NextJs) <!-- Add your demo link here -->
+**Live Demo:** [View Demo]([https://github.com/almumeetu/CapShop---Tailwind-NextJs](https://almumeetu.github.io/CapShop---Tailwind-NextJs/)) <!-- Add your demo link here -->
 
 ## ✨ Features
 
