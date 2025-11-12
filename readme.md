@@ -118,32 +118,7 @@ CapShop---Tailwind-NextJs/
    - Simply open `index.html` in your web browser
    - Or use a local development server for better development experience
 
-### Using Live Server (Recommended)
 
-If you're using VS Code, you can use the Live Server extension:
-
-1. Install the [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-2. Right-click on `index.html`
-3. Select "Open with Live Server"
-
-Alternatively, use Python's built-in server:
-```bash
-# Python 3
-python -m http.server 8000
-
-# Then open http://localhost:8000 in your browser
-```
-
-Or Node.js:
-```bash
-# Install http-server globally
-npm install -g http-server
-
-# Run the server
-http-server
-
-# Then open http://localhost:8080 in your browser
-```
 
 ## 💻 Usage
 
